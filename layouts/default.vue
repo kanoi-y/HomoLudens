@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <div class="back none" ref="back" @click="toggleMenu"></div>
+   <div>
+      <div class="back none" ref="back" @click="toggleMenu"></div>
     <header>
       <nuxt-link to="/" class="title">
         <img src="~/assets/images/HomoLudens_logo.svg" />
-      </nuxt-link>
+      </nuxt-link> 
       <!-- メニューバーのsvg -->
 
       <svg
@@ -49,7 +49,7 @@
             <li><nuxt-link to="/" class="nav_list">お問い合わせ</nuxt-link></li>
             <li><nuxt-link to="/" class="nav_list">お申し込み</nuxt-link></li>
           </ul>
-        </nav>
+        </nav> 
       </div>
     </header>
 
@@ -100,6 +100,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  letter-spacing: 0.1em;
 }
 
 *,
@@ -129,7 +130,7 @@ header {
   .ionicon {
     width: 10vw;
     max-width: 40px;
-    color: #4e4e4e;
+    color: #646363;
   }
   .global_nav {
     position: absolute;
@@ -152,7 +153,7 @@ header {
           margin-bottom: 25px;
           .nav_list {
             text-decoration: none;
-            color: #4e4e4e;
+            color: #646363;
             font-size: 1.3rem;
           }
         }
@@ -174,7 +175,7 @@ header {
 }
 
 footer {
-  background-color: #e3e4e8;
+  background-color: $back-color;
   text-align: center;
   box-sizing: border-box;
   padding: 30px 0 8px 0;
