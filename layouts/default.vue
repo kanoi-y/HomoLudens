@@ -1,10 +1,28 @@
 <template>
-   <div>
-      <div class="back none" ref="back" @click="toggleMenu"></div>
+  <div>
+    <div class="back none" ref="back" @click="toggleMenu">
+       <!-- 閉じるbuttonのsvg -->
+        <svg
+          @click="toggleMenu"
+          xmlns="http://www.w3.org/2000/svg"
+          class="ionicon"
+          viewBox="0 0 512 512"
+        >
+          <title>Close</title>
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="32"
+            d="M368 368L144 144M368 144L144 368"
+          />
+        </svg> 
+    </div>
     <header>
       <nuxt-link to="/" class="title">
         <img src="~/assets/images/HomoLudens_logo.svg" />
-      </nuxt-link> 
+      </nuxt-link>
       <!-- メニューバーのsvg -->
 
       <svg
@@ -25,31 +43,17 @@
       </svg>
 
       <div class="global_nav" ref="global_nav">
-        <!-- 閉じるbuttonのsvg -->
 
-        <svg
-          @click="toggleMenu"
-          xmlns="http://www.w3.org/2000/svg"
-          class="ionicon"
-          viewBox="0 0 512 512"
-        >
-          <title>Close</title>
-          <path
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="32"
-            d="M368 368L144 144M368 144L144 368"
-          />
-        </svg>
+        <div class="nav_title">
+        <img src="~/assets/images/HomoLudens_logo.svg">
+        </div>
         <nav>
           <ul>
             <li><nuxt-link to="/" class="nav_list">ブログ</nuxt-link></li>
             <li><nuxt-link to="/" class="nav_list">お問い合わせ</nuxt-link></li>
             <li><nuxt-link to="/" class="nav_list">お申し込み</nuxt-link></li>
           </ul>
-        </nav> 
+        </nav>
       </div>
     </header>
 
@@ -75,7 +79,8 @@ export default {
   },
   methods: {
     // メニューを開けたり閉めたりする関数
-    toggleMenu() {
+    toggleMenu(e) {
+      e.stopPropagation();
       this.$refs.global_nav.classList.toggle("opened");
       this.$refs.back.classList.toggle("none");
     }
@@ -87,12 +92,8 @@ export default {
 html {
   // font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
   //   Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-family: "Helvetica Neue",
-    Arial,
-    "Hiragino Kaku Gothic ProN",
-    "Hiragino Sans",
-    Meiryo,
-    sans-serif;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", Meiryo, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -146,6 +147,14 @@ header {
     &.opened {
       left: 0;
     }
+    .nav_title {
+      padding: 0 12px;
+      margin-bottom: 30px;
+      img {
+        height: 10vw;
+        max-height: 56px;
+      }
+    }
     nav {
       ul {
         li {
@@ -153,8 +162,9 @@ header {
           margin-bottom: 25px;
           .nav_list {
             text-decoration: none;
-            color: #646363;
-            font-size: 1.3rem;
+            color: $text-color;
+            font-size: 1.2rem;
+            font-weight: bold;
           }
         }
       }
@@ -168,6 +178,14 @@ header {
   position: absolute;
   background: rgba($color: #000000, $alpha: 0.7);
   z-index: 98;
+  .ionicon {
+    position: absolute;
+    top: 5%;
+    left: 70vw;
+    width: 10vw;
+    max-width: 40px;
+    color: #fff;
+  }
 }
 
 .none {
@@ -184,7 +202,7 @@ footer {
     margin-bottom: 12px;
     color: #fff;
     &.sub_title {
-      width: 180px;
+      width: 210px;
       margin: 0 auto;
       margin-bottom: 100px;
     }
