@@ -27,30 +27,37 @@
         <div class="features_content">
           <img src="~/assets/images/ludens-feature1.svg" />
 
-          <h3>好きな場所で好きな時間に</h3>
-          <p>
-            HomoLudensではオンライン会議ツールである「zoom」を使って学習を進めるので、インターネット環境とPCさえあれば好きな場所で受講できます。
-            <br />また、時間もご希望の時間を講師と相談の上自由に選ぶことが出来ますので、ご自身の生活スタイルに合った形で学習を行えます。
-          </p>
+          <div class="features_text">
+            <h3>好きな場所で好きな時間に</h3>
+            <p>
+              HomoLudensではオンライン会議ツールである「zoom」を使って学習を進めるので、インターネット環境とPCさえあれば好きな場所で受講できます。
+              <br />また、時間もご希望の時間を講師と相談の上自由に選ぶことが出来ますので、ご自身の生活スタイルに合った形で学習を行えます。
+            </p>
+          </div>
         </div>
 
         <div class="features_content">
           <img src="~/assets/images/ludens-feature2.svg" />
 
-          <h3>一人ひとりに合わせた授業</h3>
-          <p>
-            映像教材は基本的に使用せずに講師と受講者の１対１で学習を進めます。そのため受講者の興味や理解度に合わせて、とりあえず動くゲームを作って一緒に遊んだり、
-            じっくりと本格的にプログラミングを学ぶなど柔軟にオーダーメイドの授業を行うことが出来ます。
-          </p>
+          <div class="features_text">
+            <h3>一人ひとりに合わせた授業</h3>
+            <p>
+              映像教材は基本的に使用せずに講師と受講者の１対１で学習を進めます。そのため受講者の興味や理解度に合わせて、とりあえず動くゲームを作って一緒に遊んだり、
+              じっくりと本格的にプログラミングを学ぶなど柔軟にオーダーメイドの授業を行うことが出来ます。
+            </p>
+          </div>
         </div>
 
         <div class="features_content">
           <img src="~/assets/images/ludens-feature3.svg" />
-          <h3>いつでも質問できる仕組み</h3>
-          <p>
-            授業中にいつでも質問、相談できるのはもちろんのこと、授業外でもHomoLudensの公式LINEアカウントからいつでも質問することが出来ます。
-            <br />授業で分からなかったところや、自作したプログラムについてでも構いません。様々な質問に真摯にお答えします。
-          </p>
+
+          <div class="features_text">
+            <h3>いつでも質問できる仕組み</h3>
+            <p>
+              授業中にいつでも質問、相談できるのはもちろんのこと、授業外でもHomoLudensの公式LINEアカウントからいつでも質問することが出来ます。
+              <br />授業で分からなかったところや、自作したプログラムについてでも構いません。様々な質問に真摯にお答えします。
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -96,14 +103,14 @@
           <h3>WEB開発コース</h3>
           <!-- 準備が出来たらdivとpを消す -->
           <div class="not-ready">
-          <picture>
-            <source
-              srcset="images/course-image2_640.jpg"
-              media="(max-width: 960px)"
-            />
-            <img src="images/course-image2_1280.jpg" />
-          </picture>
-          <p class="not-ready_text">※現在このコースは受付をしていません</p>
+            <picture>
+              <source
+                srcset="images/course-image2_640.jpg"
+                media="(max-width: 960px)"
+              />
+              <img src="images/course-image2_1280.jpg" />
+            </picture>
+            <p class="not-ready_text">※現在このコースは受付をしていません</p>
           </div>
           <p>
             web開発で主に使用されているプログラミング言語であるHTML,CSS,JavaScriptなどを学びます。
@@ -164,7 +171,7 @@
           <div class="speech-bubble">A</div>
           <p>
             パソコンのOSはWindows8/10またはMac OS 10.10以降、ブラウザはGoogle
-            Chrome 最新版を使用することを推奨します。<br>ただし、ネットワーク環境やScratchの環境など諸条件によっては十分に動作しない場合もございます。
+            Chrome 最新版を使用することを推奨します。<br />ただし、ネットワーク環境やScratchの環境など諸条件によっては十分に動作しない場合もございます。
           </p>
         </div>
       </div>
@@ -177,24 +184,24 @@
         <div class="answer">
           <div class="speech-bubble">A</div>
           <div class="wrapper_answer">
-          <p>
-            受講までの流れは、以下のようになります。
-          </p>
-          <p>
-            １、まずは「無料トライアルはこちら」と書かれたボタンから、無料の体験授業に申し込みしていただきます。
-          </p>
-          <p>
-            ２、申し込み後、ご登録いただいたメールアドレスに必要なURLや日時などを記載したメールが届きます。
-          </p>
-          <p>
-            ３、指定した日時になりましたら、メールに記載されたURLにアクセスして体験授業を受講して下さい（事前にzoomの設定をしておく必要があります)<br>分からない点はメールやLINEでご連絡ください。（LINEアカウントはお申込み時にメールでお伝えします）
-          </p>
-          <p>
-            ４、体験授業を受講してコースを続けたいと思った場合は、受講する曜日と時間を講師と相談しながら決定します。
-          </p>
-          <p>
-            ５、後日、次の授業のURLと受講料のお支払いに関するご案内を記載したメールが届きますので、案内に従ってお支払いをお願いいたします。
-          </p>
+            <p>
+              受講までの流れは、以下のようになります。
+            </p>
+            <p>
+              １、まずは「無料トライアルはこちら」と書かれたボタンから、無料の体験授業に申し込みしていただきます。
+            </p>
+            <p>
+              ２、申し込み後、ご登録いただいたメールアドレスに必要なURLや日時などを記載したメールが届きます。
+            </p>
+            <p>
+              ３、指定した日時になりましたら、メールに記載されたURLにアクセスして体験授業を受講して下さい（事前にzoomの設定をしておく必要があります)<br />分からない点はメールやLINEでご連絡ください。（LINEアカウントはお申込み時にメールでお伝えします）
+            </p>
+            <p>
+              ４、体験授業を受講してコースを続けたいと思った場合は、受講する曜日と時間を講師と相談しながら決定します。
+            </p>
+            <p>
+              ５、後日、次の授業のURLと受講料のお支払いに関するご案内を記載したメールが届きますので、案内に従ってお支払いをお願いいたします。
+            </p>
           </div>
         </div>
       </div>
@@ -213,6 +220,9 @@ export default {};
   // min-height: calc(100vh - 72px);
   height: 100vh;
   background-color: #818181;
+  @include tablet-size {
+    min-height: 790px;
+  }
 }
 
 .first_area {
@@ -225,26 +235,33 @@ export default {};
     h1 {
       width: 310px;
       margin: 0 auto;
-      margin-bottom: 16px;
+      margin-bottom: 30px;
       color: #fff;
       font-size: 2.32rem;
       font-weight: 400;
+      @include tablet-size {
+        font-size: 3rem;
+        width: 496px;
+      }
     }
     .homoludens_desc {
       text-align: center;
       p {
         font-size: 0.8rem;
         color: #fff;
-        margin-bottom: 12px;
+        margin-bottom: 5px;
         &.sub_title {
           width: 210px;
           margin: 0 auto;
-          margin-bottom: 30px;
+          margin-bottom: 35px;
+          @include tablet-size {
+            width: 280px;
+          }
         }
       }
       img {
         width: 70vw;
-        margin-bottom: 12px;
+        margin-bottom: 18px;
       }
     }
   }
@@ -253,31 +270,38 @@ export default {};
 .features_title {
   img {
     width: 70vw;
+    max-width: 330px;
   }
 }
 
 .wrapper_features_content {
   text-align: center;
-  display: flex;
-  flex-direction: column;
   .features_content {
+    display: flex;
+    flex-direction: column;
     background-color: $back-color;
     border-radius: 16px;
     padding: 15px 20px;
     margin-bottom: 50px;
+    @include tablet-size {
+      padding: 25px 30px;
+      margin-bottom: 60px;
+    }
     img {
       margin-bottom: 12px;
     }
-    h3 {
-      color: $image-color;
-      margin-bottom: 12px;
-      font-size: 1.3rem;
-    }
-    p {
-      text-align: left;
-      font-size: 1rem;
-      font-weight: 700;
-      color: $text-color;
+    .features_text {
+      h3 {
+        color: $image-color;
+        margin-bottom: 12px;
+        font-size: 1.3rem;
+      }
+      p {
+        text-align: left;
+        font-size: 1rem;
+        font-weight: 700;
+        color: $text-color;
+      }
     }
   }
 }
@@ -301,6 +325,9 @@ export default {};
       color: $text-color;
       font-weight: bold;
       margin-bottom: 16px;
+       @include tablet-size {
+        margin-bottom: 30px;
+      }
       &.osusume {
         width: fit-content;
         margin-bottom: 5px;
@@ -330,7 +357,11 @@ export default {};
         "left-four  right-four  "
         "left-five  right-five  "
         / 2fr 3fr;
-      gap: 4px 6px;
+      gap: 6px 8px;
+      @include tablet-size {
+        margin-top: 30px;
+        gap: 10px 15px;
+      }
       & > * {
         padding: 6px;
         font-weight: bold;
@@ -387,6 +418,9 @@ export default {};
   margin-bottom: 50px;
   text-align: center;
   padding: 25px 15px;
+@include tablet-size {
+    padding: 35px 15px;
+  }
   h2 {
     font-size: 1.2rem;
     color: $text-color;
@@ -395,9 +429,10 @@ export default {};
 }
 
 .question_content {
-  margin-bottom: 30px;
+  margin-bottom: 45px;
   .question {
     display: flex;
+    margin-bottom: 20px;
     .question_bubble {
       background-color: $back-color;
       &:before {
@@ -408,9 +443,9 @@ export default {};
   .answer {
     display: flex;
     .wrapper_answer {
-     p {
-       margin-bottom: 10px;
-     }
+      p {
+        margin-bottom: 10px;
+      }
     }
   }
   p {
@@ -423,12 +458,18 @@ export default {};
 
 .area {
   padding: 20px;
+  @include tablet-size {
+    padding: 30px;
+  }
 }
 
 .title {
   border-bottom: 2px solid $back-color;
   margin-bottom: 50px;
   text-align: center;
+  @include tablet-size {
+    margin-bottom: 70px;
+  }
   h2 {
     font-size: 1.8rem;
     color: $text-color;
@@ -448,6 +489,9 @@ export default {};
     width: fit-content;
     max-width: 95%;
     font-size: 1rem;
+    @include tablet-size {
+    font-size: 1.6rem;
+  }
   }
 }
 
@@ -458,6 +502,9 @@ export default {};
   width: 260px;
   margin: 0 auto;
   text-align: center;
+  @include tablet-size {
+    width: 370px;
+  }
   a {
     text-decoration: none;
     color: #fff;
@@ -468,11 +515,9 @@ export default {};
 
 .speech-bubble {
   position: relative;
-  // display: inline-block;
   display: block;
   flex-shrink: 0;
   margin-right: 20px;
-  margin-bottom: 20px;
   padding: 0 5px;
   width: 50px;
   height: 50px;

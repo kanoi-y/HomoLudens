@@ -125,7 +125,7 @@ html {
 header {
   display: flex;
   justify-content: space-between;
-  padding: 8px 20px;
+  padding: 10px 20px;
   box-sizing: border-box;
   // position: relative;
   position: fixed;
@@ -135,15 +135,15 @@ header {
   background-color: #fff;
   .title {
     display: block;
-    height: 10vw;
-    max-height: 56px;
+    height: 9vw;
+    max-height: 50px;
     img {
       height: 100%;
     }
   }
   .ionicon {
-    width: 10vw;
-    max-width: 40px;
+    width: 9vw;
+    max-width: 45px;
     color: #646363;
   }
   .global_nav {
@@ -156,7 +156,7 @@ header {
     background: #fff;
     z-index: 99;
     box-sizing: border-box;
-    padding: 8px;
+    padding: 10px;
     &.opened {
       left: 0;
     }
@@ -198,10 +198,9 @@ header {
   .ionicon {
     position: absolute;
     top: 5%;
-    // left: 70vw;
     left: 72vw;
     width: 10vw;
-    max-width: 40px;
+    max-width: 45px;
     color: #fff;
   }
 }
@@ -242,7 +241,7 @@ footer {
     }
   }
   img {
-    width: 70vw;
+    width: 60vw;
   }
   small {
     color: #fff;
