@@ -1,7 +1,8 @@
 <template>
   <div>
-    <div class="back none" ref="back" @click="toggleMenu">
-       <!-- 閉じるbuttonのsvg -->
+    <header>
+      <div class="back none" ref="back" @click="toggleMenu">
+        <!-- 閉じるbuttonのsvg -->
         <svg
           @click="toggleMenu"
           xmlns="http://www.w3.org/2000/svg"
@@ -17,9 +18,8 @@
             stroke-width="32"
             d="M368 368L144 144M368 144L144 368"
           />
-        </svg> 
-    </div>
-    <header>
+        </svg>
+      </div>
       <nuxt-link to="/" class="title">
         <img src="~/assets/images/HomoLudens_logo.svg" />
       </nuxt-link>
@@ -43,15 +43,16 @@
       </svg>
 
       <div class="global_nav" ref="global_nav">
-
         <div class="nav_title">
-        <img src="~/assets/images/HomoLudens_logo.svg">
+          <img src="~/assets/images/HomoLudens_logo.svg" />
         </div>
         <nav>
           <ul>
             <li><nuxt-link to="/" class="nav_list">ブログ</nuxt-link></li>
             <li><nuxt-link to="/" class="nav_list">お問い合わせ</nuxt-link></li>
-            <li><nuxt-link to="/" class="nav_list">お申し込み</nuxt-link></li>
+            <li>
+              <nuxt-link to="/" class="nav_list">無料トライアル</nuxt-link>
+            </li>
           </ul>
         </nav>
       </div>
@@ -60,6 +61,11 @@
     <Nuxt />
 
     <footer>
+      <ul class="footer_nav">
+        <li><nuxt-link to="/" class="nav_list">ブログ</nuxt-link></li>
+        <li><nuxt-link to="/" class="nav_list">お問い合わせ</nuxt-link></li>
+        <li><nuxt-link to="/" class="nav_list">無料トライアル</nuxt-link></li>
+      </ul>
       <p>ホモ・ルーデンス</p>
       <img src="~/assets/images/HomoLudens_logo.svg" />
       <p class="sub_title">
@@ -102,6 +108,9 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
   letter-spacing: 0.1em;
+  @include tablet-size {
+    font-size: 20px;
+  }
 }
 
 *,
@@ -118,7 +127,11 @@ header {
   justify-content: space-between;
   padding: 8px 20px;
   box-sizing: border-box;
-  position: relative;
+  // position: relative;
+  position: fixed;
+  z-index: 90;
+  width: 100%;
+
   background-color: #fff;
   .title {
     display: block;
@@ -173,15 +186,20 @@ header {
 }
 
 .back {
-  width: 100vw;
-  height: 100vh;
+  // width: 100vw;
+  // height: 100vh;
+  width: calc(100vw + 20px);
+  height: calc(100vh + 8px);
   position: absolute;
   background: rgba($color: #000000, $alpha: 0.7);
   z-index: 98;
+  top: -8px;
+  left: -20px;
   .ionicon {
     position: absolute;
     top: 5%;
-    left: 70vw;
+    // left: 70vw;
+    left: 72vw;
     width: 10vw;
     max-width: 40px;
     color: #fff;
@@ -196,7 +214,23 @@ footer {
   background-color: $back-color;
   text-align: center;
   box-sizing: border-box;
-  padding: 30px 0 8px 0;
+  padding: 30px 20px 8px 20px;
+  .footer_nav {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin-bottom: 60px;
+    li {
+      list-style: none;
+      width: 50%;
+      margin-bottom: 15px;
+      a {
+        text-decoration: none;
+        color: $text-color;
+        font-weight: bold;
+      }
+    }
+  }
   p {
     font-size: 0.8rem;
     margin-bottom: 12px;
@@ -204,7 +238,7 @@ footer {
     &.sub_title {
       width: 210px;
       margin: 0 auto;
-      margin-bottom: 100px;
+      margin-bottom: 40px;
     }
   }
   img {

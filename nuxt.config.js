@@ -45,6 +45,9 @@ export default {
   },
 
   styleResources: {
-    scss: ['~/assets/sass/variables.scss']
+    scss: [
+      '~/assets/sass/variables.scss',
+      '~/assets/sass/media.scss',
+    ]
   }
 }

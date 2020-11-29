@@ -209,8 +209,9 @@ export default {};
 <style lang="scss" scoped>
 .back {
   width: 100vw;
-  height: calc(100vh - (10vw + 16px));
-  min-height: calc(100vh - 72px);
+  // height: calc(100vh - (10vw + 16px));
+  // min-height: calc(100vh - 72px);
+  height: 100vh;
   background-color: #818181;
 }
 
@@ -220,7 +221,7 @@ export default {};
     width: 100%;
     position: absolute;
     z-index: 2;
-    top: 35%;
+    top: 30%;
     h1 {
       width: 310px;
       margin: 0 auto;
@@ -316,55 +317,63 @@ export default {};
       color: $button-color;
     }
     .wrapper_grid {
-      font-size: 0.8rem;
-      margin-top: 18px;
+      font-size: 0.9rem;
+      margin-top: 20px;
       display: grid;
       grid-template:
-        "left-one   right-one   "
-        "left-two   right-two   "
+        "left-one   left-one    "
+        "right-one  right-one   "
+        "left-two   left-two    "
+        "right-two  right-two   "
         "price      price       "
         "left-three right-three "
         "left-four  right-four  "
         "left-five  right-five  "
-        / 5fr 8fr;
+        / 2fr 3fr;
       gap: 4px 6px;
       & > * {
-        background-color: $back-color;
-        border-radius: 8px;
         padding: 6px;
         font-weight: bold;
         color: $text-color;
+        padding-left: 5%;
       }
       .left-one {
         grid-area: left-one;
+        background-color: $back-color;
       }
       .right-one {
         grid-area: right-one;
+        margin-bottom: 10px;
       }
       .left-two {
         grid-area: left-two;
+        background-color: $back-color;
       }
       .right-two {
         grid-area: right-two;
+        margin-bottom: 10px;
       }
       .price {
         grid-area: price;
-        text-align: center;
+        background-color: $back-color;
       }
       .left-three {
         grid-area: left-three;
+        background-color: $image-color;
       }
       .right-three {
         grid-area: right-three;
       }
       .left-four {
         grid-area: left-four;
+        background-color: $image-color;
       }
       .right-four {
         grid-area: right-four;
       }
       .left-five {
         grid-area: left-five;
+        background-color: $image-color;
       }
       .right-five {
         grid-area: right-five;
