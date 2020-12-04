@@ -1,60 +1,69 @@
 <template>
   <div>
     <header>
-      <div class="back none" ref="back" @click="toggleMenu">
-        <!-- 閉じるbuttonのsvg -->
+      <div class="back none" ref="back" @click="toggleMenu"></div>
+
+      <div class="header_inner">
+        <nuxt-link to="/" class="title">
+          <img src="~/assets/images/HomoLudens_logo.svg" />
+        </nuxt-link>
+        <!-- メニューバーのsvg -->
+
         <svg
           @click="toggleMenu"
           xmlns="http://www.w3.org/2000/svg"
-          class="ionicon"
+          class="menu_ionicon"
           viewBox="0 0 512 512"
         >
-          <title>Close</title>
+          <title>Menu</title>
           <path
             fill="none"
             stroke="currentColor"
             stroke-linecap="round"
-            stroke-linejoin="round"
+            stroke-miterlimit="10"
             stroke-width="32"
-            d="M368 368L144 144M368 144L144 368"
+            d="M80 160h352M80 256h352M80 352h352"
           />
         </svg>
-      </div>
-      <nuxt-link to="/" class="title">
-        <img src="~/assets/images/HomoLudens_logo.svg" />
-      </nuxt-link>
-      <!-- メニューバーのsvg -->
 
-      <svg
-        @click="toggleMenu"
-        xmlns="http://www.w3.org/2000/svg"
-        class="ionicon"
-        viewBox="0 0 512 512"
-      >
-        <title>Menu</title>
-        <path
-          fill="none"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-miterlimit="10"
-          stroke-width="32"
-          d="M80 160h352M80 256h352M80 352h352"
-        />
-      </svg>
+        <div class="global_nav" ref="global_nav">
+          <div class="nav_inner">
+            <div class="nav_title">
+              <img src="~/assets/images/HomoLudens_logo.svg" />
+            </div>
+            <nav>
+              <ul>
+                <li><nuxt-link to="/" class="nav_list">ブログ</nuxt-link></li>
+                <li>
+                  <nuxt-link to="/" class="nav_list">お問い合わせ</nuxt-link>
+                </li>
+                <li>
+                  <nuxt-link to="/" class="nav_list">無料トライアル</nuxt-link>
+                </li>
+              </ul>
+            </nav>
+          </div>
 
-      <div class="global_nav" ref="global_nav">
-        <div class="nav_title">
-          <img src="~/assets/images/HomoLudens_logo.svg" />
+          <div class="wrapper_icon">
+            <!-- 閉じるbuttonのsvg -->
+            <svg
+              @click="toggleMenu"
+              xmlns="http://www.w3.org/2000/svg"
+              class="ionicon"
+              viewBox="0 0 512 512"
+            >
+              <title>Close</title>
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="32"
+                d="M368 368L144 144M368 144L144 368"
+              />
+            </svg>
+          </div>
         </div>
-        <nav>
-          <ul>
-            <li><nuxt-link to="/" class="nav_list">ブログ</nuxt-link></li>
-            <li><nuxt-link to="/" class="nav_list">お問い合わせ</nuxt-link></li>
-            <li>
-              <nuxt-link to="/" class="nav_list">無料トライアル</nuxt-link>
-            </li>
-          </ul>
-        </nav>
       </div>
     </header>
 
@@ -80,8 +89,8 @@
 export default {
   head: {
     bodyAttrs: {
-      class: "body_class"
-    }
+      class: "body_class",
+    },
   },
   methods: {
     // メニューを開けたり閉めたりする関数
@@ -89,8 +98,8 @@ export default {
       e.stopPropagation();
       this.$refs.global_nav.classList.toggle("opened");
       this.$refs.back.classList.toggle("none");
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -126,59 +135,106 @@ header {
   display: flex;
   justify-content: space-between;
   padding: 10px 20px;
-  box-sizing: border-box;
-  // position: relative;
   position: fixed;
   z-index: 90;
   width: 100%;
-
   background-color: #fff;
-  .title {
-    display: block;
-    height: 9vw;
-    max-height: 50px;
-    img {
-      height: 100%;
-    }
-  }
-  .ionicon {
-    width: 9vw;
-    max-width: 45px;
-    color: #646363;
-  }
-  .global_nav {
-    position: absolute;
-    top: 0;
-    left: -70vw;
-    height: 100vh;
-    width: 65vw;
-    transition: all 0.3s;
-    background: #fff;
-    z-index: 99;
-    box-sizing: border-box;
-    padding: 10px;
-    &.opened {
-      left: 0;
-    }
-    .nav_title {
-      padding: 0 12px;
-      margin-bottom: 30px;
+  .header_inner {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    .title {
+      display: block;
+      height: 9vw;
+      max-height: 35px;
       img {
-        height: 10vw;
-        max-height: 56px;
+        height: 100%;
       }
     }
-    nav {
-      ul {
-        li {
-          list-style: none;
-          margin-bottom: 25px;
-          .nav_list {
-            text-decoration: none;
-            color: $text-color;
-            font-size: 1.2rem;
-            font-weight: bold;
+    .menu_ionicon {
+      width: 9vw;
+      max-width: 40px;
+      color: #646363;
+      display: block;
+      @include desktop-size {
+        display: none;
+      }
+    }
+    .global_nav {
+      position: absolute;
+      top: 0;
+      left: -100vw;
+      height: 100vh;
+      transition: all 0.3s;
+      z-index: 99;
+      box-sizing: border-box;
+      display: flex;
+      @include desktop-size {
+        position: relative;
+        top: unset;
+        left: unset;
+        height: 100%;
+        flex: 1;
+      }
+      &.opened {
+        left: 0;
+      }
+      .nav_inner {
+        background-color: #fff;
+        padding: 10px;
+        padding-right: 50px;
+        @include desktop-size {
+            width: 100%;
+            padding: 0;
+            padding-top: 5px;
           }
+        .nav_title {
+          padding: 0 12px;
+          margin-bottom: 30px;
+          display: block;
+          @include desktop-size {
+            display: none;
+          }
+          img {
+            height: 10vw;
+            max-height: 35px;
+          }
+        }
+        nav {
+          ul {
+            display: flex;
+            flex-direction: column;
+            @include desktop-size {
+              flex-direction: row;
+              justify-content:space-around;
+              padding-left: 20vw;
+            }
+            li {
+              list-style: none;
+              margin-bottom: 25px;
+              @include desktop-size {
+                margin-bottom: 0;
+              }
+              .nav_list {
+                text-decoration: none;
+                color: $text-color;
+                font-size: 0.9rem;
+                font-weight: bold;
+              }
+            }
+          }
+        }
+      }
+      .wrapper_icon {
+        padding-top: 25px;
+        padding-left: 15px;
+        @include desktop-size {
+          display: none;
+        }
+        .ionicon {
+          width: 10vw;
+          max-width: 45px;
+          color: #fff;
         }
       }
     }
@@ -186,8 +242,6 @@ header {
 }
 
 .back {
-  // width: 100vw;
-  // height: 100vh;
   width: calc(100vw + 20px);
   height: calc(100vh + 8px);
   position: absolute;
@@ -195,14 +249,6 @@ header {
   z-index: 98;
   top: -8px;
   left: -20px;
-  .ionicon {
-    position: absolute;
-    top: 5%;
-    left: 72vw;
-    width: 10vw;
-    max-width: 45px;
-    color: #fff;
-  }
 }
 
 .none {

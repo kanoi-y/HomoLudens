@@ -3,13 +3,15 @@
     <div class="first_area">
       <div class="back"></div>
       <div class="first_title">
-        <h1>人間は、<br />遊ぶ存在である。</h1>
-        <div class="homoludens_desc">
-          <p>ホモ・ルーデンス</p>
-          <img src="~/assets/images/HomoLudens_logo.svg" />
-          <p class="sub_title">
-            小・中学生のためのオンラインプログラミングスクール
-          </p>
+        <div class="first_title_desktop">
+          <h1>人間は、<br />遊ぶ存在である。</h1>
+          <div class="homoludens_desc">
+            <p>ホモ・ルーデンス</p>
+            <img src="~/assets/images/HomoLudens_logo.svg" />
+            <p class="sub_title">
+              小・中学生のためのオンラインプログラミングスクール
+            </p>
+          </div>
         </div>
         <div class="btn">
           <nuxt-link to="/">無料トライアルはこちら</nuxt-link>
@@ -70,20 +72,25 @@
       <div class="wrapper_course_content">
         <div class="course_content">
           <h3>Scratchコース</h3>
-          <picture>
-            <source
-              srcset="images/course-image1-min.jpg"
-              media="(max-width: 960px)"
-            />
-            <img src="images/course-image1.jpg" />
-          </picture>
-          <p>
-            マサチューセッツ工科大学が開発したプログラミング教材「Scratch」をメインに使用して、プログラミングを学びます。
-            <br />アニメーションやゲームを作りながら、楽しくスキルを伸ばしていきます。
-          </p>
-          <h4>★こんな人におすすめ★</h4>
-          <p class="osusume">初めてプログラミングに挑戦する人</p>
-          <p class="osusume">自分でゲームを作ってみたい人</p>
+          <div class="course_content_main">
+
+          <div class="course_content_media">
+            <picture>
+              <source
+                srcset="images/course-image1-min.jpg"
+                media="(max-width: 960px)"
+              />
+              <img src="images/course-image1.jpg" />
+            </picture>
+            <p>
+              マサチューセッツ工科大学が開発したプログラミング教材「Scratch」をメインに使用して、プログラミングを学びます。
+              <br />アニメーションやゲームを作りながら、楽しくスキルを伸ばしていきます。
+            </p>
+            <h4>★こんな人におすすめ★</h4>
+            <p class="osusume">初めてプログラミングに挑戦する人</p>
+            <p class="osusume">自分でゲームを作ってみたい人</p>
+          </div>
+
           <div class="wrapper_grid">
             <div class="left-one">対象年齢(目安)</div>
             <div class="right-one">小学３年生～中学３年生程度</div>
@@ -97,28 +104,40 @@
             <div class="left-five">追加レッスン</div>
             <div class="right-five">２０００円/回</div>
           </div>
+
+          </div>
+          <!-- course_content_main -->
+
         </div>
+        <!-- course_content -->
 
         <div class="course_content">
-          <h3>WEB開発コース</h3>
-          <!-- 準備が出来たらdivとpを消す -->
-          <div class="not-ready">
-            <picture>
-              <source
-                srcset="images/course-image2_640.jpg"
-                media="(max-width: 960px)"
-              />
-              <img src="images/course-image2_1280.jpg" />
-            </picture>
-            <p class="not-ready_text">※現在このコースは受付をしていません</p>
+          
+          <h3>WEB開発コース<small>※現在このコースは受付をしていません</small></h3>
+
+          <div class="course_content_main">
+
+          <div class="course_content_media">
+            <!-- 準備が出来たらdivとpを消す -->
+            <div class="not-ready">
+              <picture>
+                <source
+                  srcset="images/course-image2_640.jpg"
+                  media="(max-width: 960px)"
+                />
+                <img src="images/course-image2_1280.jpg" />
+              </picture>
+              <p class="not-ready_text">※現在このコースは受付をしていません</p>
+            </div>
+            <p>
+              web開発で主に使用されているプログラミング言語であるHTML,CSS,JavaScriptなどを学びます。
+              <br />実際にwebサイトやwebアプリをつくりながら、将来に役立つようなスキルを身に着けます。
+            </p>
+            <h4>★こんな人におすすめ★</h4>
+            <p class="osusume">本格的なプログラミングに挑戦したい人</p>
+            <p class="osusume">ホームページやブログを作ってみたい人</p>
           </div>
-          <p>
-            web開発で主に使用されているプログラミング言語であるHTML,CSS,JavaScriptなどを学びます。
-            <br />実際にwebサイトやwebアプリをつくりながら、将来に役立つようなスキルを身に着けます。
-          </p>
-          <h4>★こんな人におすすめ★</h4>
-          <p class="osusume">本格的なプログラミングに挑戦したい人</p>
-          <p class="osusume">ホームページやブログを作ってみたい人</p>
+
           <div class="wrapper_grid">
             <div class="left-one">対象年齢(目安)</div>
             <div class="right-one">小学高学年以上</div>
@@ -132,10 +151,17 @@
             <div class="left-five">追加レッスン</div>
             <div class="right-five">２５００円/回</div>
           </div>
-          <small>※現在このコースは受付をしていません</small>
+          </div>
+          <!-- course_content_main -->
+
         </div>
+        <!-- course_content -->
+
       </div>
+      <!-- wrapper_course_content -->
+
     </div>
+    <!-- content_area -->
 
     <div class="trial">
       <h2>まずは、無料で授業を体験しよう！</h2>
@@ -215,13 +241,15 @@ export default {};
 
 <style lang="scss" scoped>
 .back {
-  width: 100vw;
-  // height: calc(100vh - (10vw + 16px));
-  // min-height: calc(100vh - 72px);
+  width: 100%;
   height: 100vh;
   background-color: #818181;
   @include tablet-size {
     min-height: 790px;
+  }
+  @include desktop-size {
+    min-height: unset;
+    max-height: 800px;
   }
 }
 
@@ -232,36 +260,50 @@ export default {};
     position: absolute;
     z-index: 2;
     top: 30%;
-    h1 {
-      width: 310px;
-      margin: 0 auto;
-      margin-bottom: 30px;
-      color: #fff;
-      font-size: 2.32rem;
-      font-weight: 400;
-      @include tablet-size {
-        font-size: 3rem;
-        width: 496px;
+    &_desktop {
+      display: flex;
+      flex-direction: column;
+      @include desktop-size {
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: 15vh;
       }
-    }
-    .homoludens_desc {
-      text-align: center;
-      p {
-        font-size: 0.8rem;
+      h1 {
+        margin: 0 auto;
+        margin-bottom: 30px;
         color: #fff;
-        margin-bottom: 5px;
-        &.sub_title {
-          width: 210px;
-          margin: 0 auto;
-          margin-bottom: 35px;
-          @include tablet-size {
-            width: 280px;
-          }
+        font-size: 2.32rem;
+        font-weight: 400;
+        @include tablet-size {
+          font-size: 3rem;
+        }
+        @include desktop-size {
+          margin: 0;
+          margin-right: 2vw;
         }
       }
-      img {
-        width: 70vw;
-        margin-bottom: 18px;
+      .homoludens_desc {
+        text-align: center;
+        p {
+          font-size: 0.8rem;
+          color: #fff;
+          margin-bottom: 5px;
+          &.sub_title {
+            width: 210px;
+            margin: 0 auto;
+            margin-bottom: 35px;
+            @include tablet-size {
+              width: 280px;
+            }
+          }
+        }
+        img {
+          width: 70vw;
+          margin-bottom: 18px;
+          @include desktop-size {
+            width: 30vw;
+          }
+        }
       }
     }
   }
@@ -287,20 +329,36 @@ export default {};
       padding: 25px 30px;
       margin-bottom: 60px;
     }
+    @include desktop-size {
+      flex-direction: row;
+      max-width: 800px;
+      margin: 0 auto 60px;
+      padding: 20px;
+    }
     img {
       margin-bottom: 12px;
+      @include desktop-size {
+        margin-right: 30px;
+        flex: 0 0 330px;
+      }
     }
     .features_text {
       h3 {
         color: $image-color;
         margin-bottom: 12px;
         font-size: 1.3rem;
+        @include desktop-size {
+          font-size: 1.2rem;
+        }
       }
       p {
         text-align: left;
         font-size: 1rem;
         font-weight: 700;
         color: $text-color;
+        @include desktop-size {
+          font-size: 0.8rem;
+        }
       }
     }
   }
@@ -316,100 +374,104 @@ export default {};
       font-size: 1.4rem;
       margin-bottom: 10px;
     }
-    img {
-      width: 100%;
-      margin-bottom: 16px;
-    }
-    p {
-      font-size: 0.9rem;
-      color: $text-color;
-      font-weight: bold;
-      margin-bottom: 16px;
-       @include tablet-size {
-        margin-bottom: 30px;
+    .course_content_main {
+
+      img {
+        width: 100%;
+        margin-bottom: 16px;
       }
-      &.osusume {
-        width: fit-content;
-        margin-bottom: 5px;
-        background: linear-gradient(transparent 70%, $image-color 70%);
-      }
-    }
-    h4 {
-      color: $text-color;
-      font-size: 1.1rem;
-      margin-bottom: 10px;
-    }
-    small {
-      font-size: 0.7rem;
-      color: $button-color;
-    }
-    .wrapper_grid {
-      font-size: 0.9rem;
-      margin-top: 20px;
-      display: grid;
-      grid-template:
-        "left-one   left-one    "
-        "right-one  right-one   "
-        "left-two   left-two    "
-        "right-two  right-two   "
-        "price      price       "
-        "left-three right-three "
-        "left-four  right-four  "
-        "left-five  right-five  "
-        / 2fr 3fr;
-      gap: 6px 8px;
-      @include tablet-size {
-        margin-top: 30px;
-        gap: 10px 15px;
-      }
-      & > * {
-        padding: 6px;
-        font-weight: bold;
+      p {
+        font-size: 0.9rem;
         color: $text-color;
-        padding-left: 5%;
+        font-weight: bold;
+        margin-bottom: 16px;
+        @include tablet-size {
+          margin-bottom: 30px;
+        }
+        &.osusume {
+          width: fit-content;
+          margin-bottom: 5px;
+          background: linear-gradient(transparent 70%, $image-color 70%);
+        }
       }
-      .left-one {
-        grid-area: left-one;
-        background-color: $back-color;
-      }
-      .right-one {
-        grid-area: right-one;
+      h4 {
+        color: $text-color;
+        font-size: 1.1rem;
         margin-bottom: 10px;
       }
-      .left-two {
-        grid-area: left-two;
-        background-color: $back-color;
+      small {
+        font-size: 0.7rem;
+        color: $button-color;
       }
-      .right-two {
-        grid-area: right-two;
-        margin-bottom: 10px;
-      }
-      .price {
-        grid-area: price;
-        background-color: $back-color;
-      }
-      .left-three {
-        grid-area: left-three;
-        background-color: $image-color;
-      }
-      .right-three {
-        grid-area: right-three;
-      }
-      .left-four {
-        grid-area: left-four;
-        background-color: $image-color;
-      }
-      .right-four {
-        grid-area: right-four;
-      }
-      .left-five {
-        grid-area: left-five;
-        background-color: $image-color;
-      }
-      .right-five {
-        grid-area: right-five;
+      .wrapper_grid {
+        font-size: 0.9rem;
+        margin-top: 20px;
+        display: grid;
+        grid-template:
+          "left-one   left-one    "
+          "right-one  right-one   "
+          "left-two   left-two    "
+          "right-two  right-two   "
+          "price      price       "
+          "left-three right-three "
+          "left-four  right-four  "
+          "left-five  right-five  "
+          / 2fr 3fr;
+        gap: 6px 8px;
+        @include tablet-size {
+          margin-top: 30px;
+          gap: 10px 15px;
+        }
+        & > * {
+          padding: 6px;
+          font-weight: bold;
+          color: $text-color;
+          padding-left: 5%;
+        }
+        .left-one {
+          grid-area: left-one;
+          background-color: $back-color;
+        }
+        .right-one {
+          grid-area: right-one;
+          margin-bottom: 10px;
+        }
+        .left-two {
+          grid-area: left-two;
+          background-color: $back-color;
+        }
+        .right-two {
+          grid-area: right-two;
+          margin-bottom: 10px;
+        }
+        .price {
+          grid-area: price;
+          background-color: $back-color;
+        }
+        .left-three {
+          grid-area: left-three;
+          background-color: $image-color;
+        }
+        .right-three {
+          grid-area: right-three;
+        }
+        .left-four {
+          grid-area: left-four;
+          background-color: $image-color;
+        }
+        .right-four {
+          grid-area: right-four;
+        }
+        .left-five {
+          grid-area: left-five;
+          background-color: $image-color;
+        }
+        .right-five {
+          grid-area: right-five;
+        }
       }
     }
+
   }
 }
 
@@ -418,7 +480,7 @@ export default {};
   margin-bottom: 50px;
   text-align: center;
   padding: 25px 15px;
-@include tablet-size {
+  @include tablet-size {
     padding: 35px 15px;
   }
   h2 {
@@ -490,8 +552,8 @@ export default {};
     max-width: 95%;
     font-size: 1rem;
     @include tablet-size {
-    font-size: 1.6rem;
-  }
+      font-size: 1.6rem;
+    }
   }
 }
 
