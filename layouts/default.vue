@@ -70,16 +70,21 @@
     <Nuxt />
 
     <footer>
-      <ul class="footer_nav">
-        <li><nuxt-link to="/" class="nav_list">ブログ</nuxt-link></li>
-        <li><nuxt-link to="/" class="nav_list">お問い合わせ</nuxt-link></li>
-        <li><nuxt-link to="/" class="nav_list">無料トライアル</nuxt-link></li>
-      </ul>
-      <p>ホモ・ルーデンス</p>
-      <img src="~/assets/images/HomoLudens_logo.svg" />
-      <p class="sub_title">
-        小・中学生のためのオンラインプログラミングスクール
-      </p>
+      <div class="footer_main">
+        <ul class="footer_nav">
+          <li><nuxt-link to="/" class="nav_list">ブログ</nuxt-link></li>
+          <li><nuxt-link to="/" class="nav_list">お問い合わせ</nuxt-link></li>
+          <li><nuxt-link to="/" class="nav_list">無料トライアル</nuxt-link></li>
+        </ul>
+
+        <div class="footer_media">
+          <p>ホモ・ルーデンス</p>
+          <img src="~/assets/images/HomoLudens_logo.svg" />
+          <p class="sub_title">
+            小・中学生のためのオンラインプログラミングスクール
+          </p>
+        </div>
+      </div>
       <small>🄫 2020 HomoLudens</small>
     </footer>
   </div>
@@ -89,8 +94,8 @@
 export default {
   head: {
     bodyAttrs: {
-      class: "body_class",
-    },
+      class: "body_class"
+    }
   },
   methods: {
     // メニューを開けたり閉めたりする関数
@@ -98,8 +103,8 @@ export default {
       e.stopPropagation();
       this.$refs.global_nav.classList.toggle("opened");
       this.$refs.back.classList.toggle("none");
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -184,10 +189,10 @@ header {
         padding: 10px;
         padding-right: 50px;
         @include desktop-size {
-            width: 100%;
-            padding: 0;
-            padding-top: 5px;
-          }
+          width: 100%;
+          padding: 0;
+          padding-top: 5px;
+        }
         .nav_title {
           padding: 0 12px;
           margin-bottom: 30px;
@@ -204,9 +209,10 @@ header {
           ul {
             display: flex;
             flex-direction: column;
+            padding: 0 12px;
             @include desktop-size {
               flex-direction: row;
-              justify-content:space-around;
+              justify-content: space-around;
               padding-left: 20vw;
             }
             li {
@@ -256,41 +262,69 @@ header {
 }
 
 footer {
+  display: block;
   background-color: $back-color;
   text-align: center;
   box-sizing: border-box;
   padding: 30px 20px 8px 20px;
-  .footer_nav {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0;
-    margin-bottom: 60px;
-    li {
-      list-style: none;
-      width: 50%;
-      margin-bottom: 15px;
-      a {
-        text-decoration: none;
-        color: $text-color;
-        font-weight: bold;
+  @include desktop-size {
+    padding-top: 45px;
+  }
+  .footer_main {
+    @include desktop-size {
+      display: flex;
+      justify-content: space-around;
+    }
+    .footer_nav {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0;
+      margin-bottom: 60px;
+      @include desktop-size {
+        margin-right: 3vw;
+      }
+      li {
+        list-style: none;
+        width: 50%;
+        margin-bottom: 15px;
+        text-align: left;
+        a {
+          text-decoration: none;
+          color: $text-color;
+          font-weight: bold;
+          @include desktop-size {
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+    .footer_media {
+      p {
+        font-size: 0.8rem;
+        margin-bottom: 12px;
+        color: #fff;
+        &.sub_title {
+          width: 210px;
+          margin: 0 auto;
+          margin-bottom: 40px;
+          @include tablet-size {
+            width: 280px;
+          }
+        }
+      }
+      img {
+        width: 60vw;
+        @include desktop-size {
+          width: 30vw;
+        }
       }
     }
   }
-  p {
-    font-size: 0.8rem;
-    margin-bottom: 12px;
-    color: #fff;
-    &.sub_title {
-      width: 210px;
-      margin: 0 auto;
-      margin-bottom: 40px;
-    }
-  }
-  img {
-    width: 60vw;
-  }
   small {
     color: #fff;
+    @include desktop-size {
+      font-size: 0.7rem;
+    }
   }
 }
 </style>

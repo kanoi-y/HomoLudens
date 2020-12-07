@@ -139,22 +139,23 @@
       <div class="wrapper_course_content">
         <div class="course_content">
           <h3>Scratchコース</h3>
-          <div class="course_content_main">
-            <div class="course_content_media">
-              <picture>
-                <source
-                  srcset="images/course-image1-min.jpg"
-                  media="(max-width: 960px)"
-                />
-                <img src="images/course-image1.jpg" />
-              </picture>
+          <picture>
+            <source
+              srcset="images/course-image1-min.jpg"
+              media="(max-width: 960px)"
+            />
+            <img src="images/course-image1.jpg" />
+          </picture>
+
+          <div class="course_text">
+            <div class="course_text_main">
+              <h4>★こんな人におすすめ★</h4>
+              <p class="osusume">初めてプログラミングに挑戦する人</p>
+              <p class="osusume">自分でゲームを作ってみたい人</p>
               <p>
                 マサチューセッツ工科大学が開発したプログラミング教材「Scratch」をメインに使用して、プログラミングを学びます。
                 <br />アニメーションやゲームを作りながら、楽しくスキルを伸ばしていきます。
               </p>
-              <h4>★こんな人におすすめ★</h4>
-              <p class="osusume">初めてプログラミングに挑戦する人</p>
-              <p class="osusume">自分でゲームを作ってみたい人</p>
             </div>
 
             <div class="wrapper_grid">
@@ -171,7 +172,6 @@
               <div class="right-five">２０００円/回</div>
             </div>
           </div>
-          <!-- course_content_main -->
         </div>
         <!-- course_content -->
 
@@ -180,28 +180,29 @@
             WEB開発コース<small>※現在このコースは受付をしていません</small>
           </h3>
 
-          <div class="course_content_main">
-            <div class="course_content_media">
-              <!-- 準備が出来たらdivとpを消す -->
-              <div class="not-ready">
-                <picture>
-                  <source
-                    srcset="images/course-image2_640.jpg"
-                    media="(max-width: 960px)"
-                  />
-                  <img src="images/course-image2_1280.jpg" />
-                </picture>
-                <p class="not-ready_text">
-                  ※現在このコースは受付をしていません
-                </p>
-              </div>
+          <!-- 準備が出来たらdivとpを消す -->
+          <div class="not-ready">
+            <picture>
+              <source
+                srcset="images/course-image2_640.jpg"
+                media="(max-width: 960px)"
+              />
+              <img src="images/course-image2_1280.jpg" />
+            </picture>
+            <p class="not-ready_text">
+              ※現在このコースは受付をしていません
+            </p>
+          </div>
+
+          <div class="course_text">
+            <div class="course_text_main">
+              <h4>★こんな人におすすめ★</h4>
+              <p class="osusume">本格的なプログラミングに挑戦したい人</p>
+              <p class="osusume">ホームページやブログを作ってみたい人</p>
               <p>
                 web開発で主に使用されているプログラミング言語であるHTML,CSS,JavaScriptなどを学びます。
                 <br />実際にwebサイトやwebアプリをつくりながら、将来に役立つようなスキルを身に着けます。
               </p>
-              <h4>★こんな人におすすめ★</h4>
-              <p class="osusume">本格的なプログラミングに挑戦したい人</p>
-              <p class="osusume">ホームページやブログを作ってみたい人</p>
             </div>
 
             <div class="wrapper_grid">
@@ -218,7 +219,7 @@
               <div class="right-five">２５００円/回</div>
             </div>
           </div>
-          <!-- course_content_main -->
+          <!-- course_text -->
         </div>
         <!-- course_content -->
       </div>
@@ -238,63 +239,69 @@
         <h2>よくあるご質問</h2>
       </div>
 
-      <div class="question_content">
-        <div class="question">
-          <div class="speech-bubble question_bubble">Q</div>
-          <p>スマホやタブレットでも学習できますか？</p>
-        </div>
-        <div class="answer">
-          <div class="speech-bubble">A</div>
-          <p>
-            オンラインレッスン自体はスマホやタブレットでも可能ですが、Scratchなどプログラミングを行う作業環境はパソコンのみとなっています。
-          </p>
-        </div>
-      </div>
-
-      <div class="question_content">
-        <div class="question">
-          <div class="speech-bubble question_bubble">Q</div>
-          <p>推奨環境を教えてください</p>
-        </div>
-        <div class="answer">
-          <div class="speech-bubble">A</div>
-          <p>
-            パソコンのOSはWindows8/10またはMac OS 10.10以降、ブラウザはGoogle
-            Chrome 最新版を使用することを推奨します。<br />ただし、ネットワーク環境やScratchの環境など諸条件によっては十分に動作しない場合もございます。
-          </p>
-        </div>
-      </div>
-
-      <div class="question_content">
-        <div class="question">
-          <div class="speech-bubble question_bubble">Q</div>
-          <p>申込から受講開始まではどのような流れになりますか？</p>
-        </div>
-        <div class="answer">
-          <div class="speech-bubble">A</div>
-          <div class="wrapper_answer">
+      <div class="wrapper_question_contents">
+        <div class="question_content">
+          <div class="question">
+            <div class="speech-bubble question_bubble">Q</div>
+            <p>スマホやタブレットでも学習できますか？</p>
+          </div>
+          <div class="answer">
+            <div class="speech-bubble">A</div>
             <p>
-              受講までの流れは、以下のようになります。
-            </p>
-            <p>
-              １、まずは「無料トライアルはこちら」と書かれたボタンから、無料の体験授業に申し込みしていただきます。
-            </p>
-            <p>
-              ２、申し込み後、ご登録いただいたメールアドレスに必要なURLや日時などを記載したメールが届きます。
-            </p>
-            <p>
-              ３、指定した日時になりましたら、メールに記載されたURLにアクセスして体験授業を受講して下さい（事前にzoomの設定をしておく必要があります)<br />分からない点はメールやLINEでご連絡ください。（LINEアカウントはお申込み時にメールでお伝えします）
-            </p>
-            <p>
-              ４、体験授業を受講してコースを続けたいと思った場合は、受講する曜日と時間を講師と相談しながら決定します。
-            </p>
-            <p>
-              ５、後日、次の授業のURLと受講料のお支払いに関するご案内を記載したメールが届きますので、案内に従ってお支払いをお願いいたします。
+              オンラインレッスン自体はスマホやタブレットでも可能ですが、Scratchなどプログラミングを行う作業環境はパソコンのみとなっています。
             </p>
           </div>
         </div>
+
+        <div class="question_content">
+          <div class="question">
+            <div class="speech-bubble question_bubble">Q</div>
+            <p>推奨環境を教えてください</p>
+          </div>
+          <div class="answer">
+            <div class="speech-bubble">A</div>
+            <p>
+              パソコンのOSはWindows8/10またはMac OS 10.10以降、ブラウザはGoogle
+              Chrome 最新版を使用することを推奨します。<br />ただし、ネットワーク環境やScratchの環境など諸条件によっては十分に動作しない場合もございます。
+            </p>
+          </div>
+        </div>
+
+        <div class="question_content">
+          <div class="question">
+            <div class="speech-bubble question_bubble">Q</div>
+            <p>申込から受講開始まではどのような流れになりますか？</p>
+          </div>
+          <div class="answer">
+            <div class="speech-bubble">A</div>
+            <div class="wrapper_answer">
+              <p>
+                受講までの流れは、以下のようになります。
+              </p>
+              <p>
+                １、まずは「無料トライアルはこちら」と書かれたボタンから、無料の体験授業に申し込みしていただきます。
+              </p>
+              <p>
+                ２、申し込み後、ご登録いただいたメールアドレスに必要なURLや日時などを記載したメールが届きます。
+              </p>
+              <p>
+                ３、指定した日時になりましたら、メールに記載されたURLにアクセスして体験授業を受講して下さい（事前にzoomの設定をしておく必要があります)<br />分からない点はメールやLINEでご連絡ください。（LINEアカウントはお申込み時にメールでお伝えします）
+              </p>
+              <p>
+                ４、体験授業を受講してコースを続けたいと思った場合は、受講する曜日と時間を講師と相談しながら決定します。
+              </p>
+              <p>
+                ５、後日、次の授業のURLと受講料のお支払いに関するご案内を記載したメールが届きますので、案内に従ってお支払いをお願いいたします。
+              </p>
+            </div>
+          </div>
+          <!-- answer -->
+        </div>
+        <!-- question_content -->
       </div>
+      <!-- wrapper_question_contents -->
     </div>
+    <!-- question_area -->
   </div>
 </template>
 
@@ -326,9 +333,9 @@ export default {};
   align-items: center;
   justify-content: center;
 
-// とりあえず消す
+  // とりあえず消す
   display: none;
-  
+
   #loader_logo {
     display: block;
     width: 65vw;
@@ -454,38 +461,60 @@ export default {};
   flex-direction: column;
   .course_content {
     margin-bottom: 50px;
+    @include desktop-size {
+      max-width: 800px;
+      margin: 0 auto 70px;
+    }
     h3 {
       color: $image-color;
       font-size: 1.4rem;
       margin-bottom: 10px;
     }
-    .course_content_main {
-      img {
-        width: 100%;
-        margin-bottom: 16px;
+    img {
+      width: 100%;
+      margin-bottom: 16px;
+      @include desktop-size {
+        margin-bottom: 40px;
       }
-      p {
-        font-size: 0.9rem;
-        color: $text-color;
-        font-weight: bold;
-        margin-bottom: 16px;
-        @include tablet-size {
-          margin-bottom: 30px;
+    }
+    small {
+      font-size: 0.7rem;
+      color: $button-color;
+    }
+    .course_text {
+      display: flex;
+      flex-direction: column;
+      @include desktop-size {
+        flex-direction: row;
+      }
+      .course_text_main {
+        @include desktop-size {
+          flex: 1;
         }
-        &.osusume {
+        p {
+          font-size: 0.9rem;
+          color: $text-color;
+          font-weight: bold;
+        }
+        .osusume {
           width: fit-content;
           margin-bottom: 5px;
           background: linear-gradient(transparent 70%, $image-color 70%);
+          &:nth-child(3) {
+            margin-bottom: 30px;
+            @include tablet-size {
+              margin-bottom: 45px;
+            }
+            @include desktop-size {
+              margin-bottom: 60px;
+            }
+          }
         }
-      }
-      h4 {
-        color: $text-color;
-        font-size: 1.1rem;
-        margin-bottom: 10px;
-      }
-      small {
-        font-size: 0.7rem;
-        color: $button-color;
+        h4 {
+          color: $text-color;
+          font-size: 1.1rem;
+          margin-bottom: 10px;
+        }
       }
       .wrapper_grid {
         font-size: 0.9rem;
@@ -505,6 +534,11 @@ export default {};
         @include tablet-size {
           margin-top: 30px;
           gap: 10px 15px;
+        }
+        @include desktop-size {
+          flex: 1;
+          margin-top: 0;
+          padding-left: 22px;
         }
         & > * {
           padding: 6px;
@@ -566,6 +600,9 @@ export default {};
   @include tablet-size {
     padding: 35px 15px;
   }
+  @include desktop-size {
+    padding: 50px 15px;
+  }
   h2 {
     font-size: 1.2rem;
     color: $text-color;
@@ -573,8 +610,16 @@ export default {};
   }
 }
 
+.wrapper_question_contents {
+ @include desktop-size {
+  max-width: 800px;
+  margin: 0 auto;
+  }
 .question_content {
-  margin-bottom: 45px;
+  margin-bottom: 50px;
+  @include desktop-size {
+  margin-bottom: 70px;
+  }
   .question {
     display: flex;
     margin-bottom: 20px;
@@ -599,6 +644,7 @@ export default {};
     color: $text-color;
     padding-top: 6px;
   }
+}
 }
 
 .area {
@@ -664,9 +710,9 @@ export default {};
   flex-shrink: 0;
   margin-right: 20px;
   padding: 0 5px;
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
   text-align: center;
   color: $text-color;
   font-size: 1.8rem;
@@ -674,6 +720,12 @@ export default {};
   background: $image-color;
   border-radius: 50%;
   box-sizing: border-box;
+  @include tablet-size {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.7rem;
+  }
   &:before {
     content: "";
     position: absolute;
