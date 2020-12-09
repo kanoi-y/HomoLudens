@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="first_area">
-      <div class="first_loader">
+      <div class="first_loader" ref="first_loader">
         <svg
           id="loader_logo"
           data-name="レイヤー 1"
@@ -76,7 +76,7 @@
             <p>ホモ・ルーデンス</p>
             <img src="~/assets/images/HomoLudens_logo.svg" />
             <p class="sub_title">
-              小・中学生のためのオンラインプログラミングスクール
+              小・中学生のためのオンライン<br />プログラミングスクール
             </p>
           </div>
         </div>
@@ -306,26 +306,28 @@
 </template>
 
 <script>
-export default {};
+export default {
+  mounted() {
+    this.$nextTick(function() {
+      const firstLoader = this.$refs.first_loader;
+      firstLoader.classList.add("none_class");
+    });
+  }
+};
 </script>
 
 <style lang="scss" scoped>
 .back {
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - (9vw + 20px));
+  min-height: calc(100vh - 55px);
   background-color: #818181;
-  @include tablet-size {
-    min-height: 790px;
-  }
-  @include desktop-size {
-    min-height: unset;
-    max-height: 800px;
-  }
 }
 
 .first_loader {
   position: fixed;
   z-index: 100;
+  top: 0;
   width: 100%;
   height: 100vh;
   background-color: #fff;
@@ -333,15 +335,55 @@ export default {};
   align-items: center;
   justify-content: center;
 
-  // とりあえず消す
-  display: none;
-
   #loader_logo {
     display: block;
     width: 65vw;
+    animation: bigAnime 1.5s infinite alternate;
+    @include desktop-size {
+    width: 30vw;
+  }
     .cls-1 {
-      fill: black;
+      animation: changeColorAnime 1.5s infinite alternate;
     }
+  }
+}
+
+.none_class {
+  animation: noneAnime 3s forwards;
+}
+
+@keyframes bigAnime {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes changeColorAnime {
+  0% {
+    fill: $back-color;
+  }
+
+  100% {
+    fill: $image-color;
+  }
+}
+
+@keyframes noneAnime {
+  0% {
+    opacity: 1;
+  }
+
+  99% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
   }
 }
 
@@ -351,14 +393,14 @@ export default {};
     width: 100%;
     position: absolute;
     z-index: 2;
-    top: 30%;
+    top: 25%;
     &_desktop {
       display: flex;
       flex-direction: column;
       @include desktop-size {
         flex-direction: row;
         justify-content: center;
-        margin-bottom: 15vh;
+        margin-bottom: 13vh;
       }
       h1 {
         margin: 0 auto;
@@ -611,40 +653,48 @@ export default {};
 }
 
 .wrapper_question_contents {
- @include desktop-size {
-  max-width: 800px;
-  margin: 0 auto;
-  }
-.question_content {
-  margin-bottom: 50px;
   @include desktop-size {
-  margin-bottom: 70px;
+    max-width: 800px;
+    margin: 0 auto;
   }
-  .question {
-    display: flex;
-    margin-bottom: 20px;
-    .question_bubble {
-      background-color: $back-color;
-      &:before {
-        border-left: 15px solid $back-color;
+  .question_content {
+    margin-bottom: 35px;
+    @include desktop-size {
+      margin-bottom: 70px;
+    }
+    .question {
+      display: flex;
+      margin-bottom: 20px;
+      .question_bubble {
+        background-color: $back-color;
+        &:before {
+          border-left: 15px solid $back-color;
+        }
+      }
+    }
+    .answer {
+      display: flex;
+      padding-bottom: 15px;
+      border-bottom: 1px solid $back-color;
+      .wrapper_answer {
+        p {
+          margin-bottom: 10px;
+        }
+      }
+    }
+    p {
+      font-size: 1rem;
+      font-weight: bold;
+      color: $text-color;
+      padding-top: 6px;
+    }
+    &:last-child {
+      .answer {
+        padding-bottom: 0;
+        border-bottom-width: 0;
       }
     }
   }
-  .answer {
-    display: flex;
-    .wrapper_answer {
-      p {
-        margin-bottom: 10px;
-      }
-    }
-  }
-  p {
-    font-size: 1rem;
-    font-weight: bold;
-    color: $text-color;
-    padding-top: 6px;
-  }
-}
 }
 
 .area {

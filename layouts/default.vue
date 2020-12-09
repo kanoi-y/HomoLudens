@@ -33,9 +33,9 @@
             </div>
             <nav>
               <ul>
-                <li><nuxt-link to="/" class="nav_list">ブログ</nuxt-link></li>
+                <li><nuxt-link to="/blog" class="nav_list">ブログ</nuxt-link></li>
                 <li>
-                  <nuxt-link to="/" class="nav_list">お問い合わせ</nuxt-link>
+                  <nuxt-link to="/contact" class="nav_list">お問い合わせ</nuxt-link>
                 </li>
                 <li>
                   <nuxt-link to="/" class="nav_list">無料トライアル</nuxt-link>
@@ -72,8 +72,8 @@
     <footer>
       <div class="footer_main">
         <ul class="footer_nav">
-          <li><nuxt-link to="/" class="nav_list">ブログ</nuxt-link></li>
-          <li><nuxt-link to="/" class="nav_list">お問い合わせ</nuxt-link></li>
+          <li><nuxt-link to="/blog" class="nav_list">ブログ</nuxt-link></li>
+          <li><nuxt-link to="/contact" class="nav_list">お問い合わせ</nuxt-link></li>
           <li><nuxt-link to="/" class="nav_list">無料トライアル</nuxt-link></li>
         </ul>
 
@@ -81,7 +81,7 @@
           <p>ホモ・ルーデンス</p>
           <img src="~/assets/images/HomoLudens_logo.svg" />
           <p class="sub_title">
-            小・中学生のためのオンラインプログラミングスクール
+            小・中学生のためのオンライン<br />プログラミングスクール
           </p>
         </div>
       </div>
@@ -133,6 +133,10 @@ html {
   box-sizing: border-box;
   margin: 0;
 }
+
+.none {
+  display: none !important;
+}
 </style>
 
 <style lang="scss" scoped>
@@ -140,7 +144,9 @@ header {
   display: flex;
   justify-content: space-between;
   padding: 10px 20px;
-  position: fixed;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   z-index: 90;
   width: 100%;
   background-color: #fff;
@@ -257,10 +263,6 @@ header {
   left: -20px;
 }
 
-.none {
-  display: none;
-}
-
 footer {
   display: block;
   background-color: $back-color;
@@ -278,6 +280,7 @@ footer {
     .footer_nav {
       display: flex;
       flex-wrap: wrap;
+      justify-content: space-between;
       padding: 0;
       margin-bottom: 60px;
       @include desktop-size {
@@ -285,9 +288,9 @@ footer {
       }
       li {
         list-style: none;
-        width: 50%;
-        margin-bottom: 15px;
-        text-align: left;
+        width: 45%;
+        margin-bottom: 20px;
+        text-align: center;
         a {
           text-decoration: none;
           color: $text-color;
@@ -306,7 +309,7 @@ footer {
         &.sub_title {
           width: 210px;
           margin: 0 auto;
-          margin-bottom: 40px;
+          margin-bottom: 30px;
           @include tablet-size {
             width: 280px;
           }
