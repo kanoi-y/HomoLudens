@@ -150,6 +150,7 @@ header {
   z-index: 90;
   width: 100%;
   background-color: #fff;
+  border-bottom: 1px solid $back-color;
   .header_inner {
     display: flex;
     flex: 1;
