@@ -318,6 +318,7 @@ footer {
       }
       img {
         width: 60vw;
+        margin-bottom: 18px;
         @include desktop-size {
           width: 30vw;
         }
