@@ -4,9 +4,7 @@
       <ul class="breadcrumb-trail">
         <li><nuxt-link to="/blog">ブログ一覧</nuxt-link></li>
         <li>
-          <nuxt-link to="/blog">{{
-            checkCategory($route.params.categoryId, categories)
-          }}</nuxt-link>
+          {{ checkCategory($route.params.categoryId, categories) }}
         </li>
       </ul>
       <div class="wrapper_card">
@@ -48,25 +46,16 @@
         >
       </div>
     </div>
-    <aside class="sidebar">
-      <div class="side_category">
-        <h2>カテゴリー</h2>
-        <ul class="side_category_list">
-          <li v-for="content in categories.contents" :key="content.id">
-            <nuxt-link :to="`/blog/category/${content.id}/page/1`">{{
-              content.name
-            }}</nuxt-link>
-          </li>
-        </ul>
-      </div>
-    </aside>
+    <sidebar :contents='categories.contents'></sidebar>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import sidebar from "~/components/sidebar.vue";
 
 export default {
+  components: { sidebar },
   async asyncData({ params }) {
     const page = params.p || "1";
     const categoryId = params.categoryId;
@@ -108,7 +97,7 @@ export default {
   },
   methods: {
     postedDate(content) {
-      const time = new Date(content.createdAt);
+      const time = new Date(content.publishedAt);
       const year = time.getFullYear();
       const mon = time.getMonth() + 1;
       const date = time.getDate();
@@ -131,7 +120,7 @@ export default {
 
 .wrapper {
   margin-top: 20px;
-  padding: 0 20px;
+  padding: 0 15px;
   display: block;
   @include tablet-size {
     padding: 0 30px;
@@ -160,6 +149,7 @@ export default {
   display: flex;
   li {
     font-size: 0.8rem;
+    color: $button-color;
     &::after {
       content: ">";
       margin: 0 10px;

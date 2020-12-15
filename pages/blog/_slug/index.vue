@@ -1,13 +1,138 @@
 <template>
-  
+  <div class="wrapper">
+    <main class="main">
+      <ul class="breadcrumb-trail">
+        <li><nuxt-link to="/blog">ブログ一覧</nuxt-link></li>
+        <li>
+          <nuxt-link :to="`/blog/category/${blog.category.id}/page/1`">{{
+            blog.category.name
+          }}</nuxt-link>
+        </li>
+      </ul>
+      <div class="article">
+        <figure class="article_img">
+          <img :src="`${blog.thumbnail.url}`" />
+        </figure>
+        <span class="publishedAt">{{ postedDate(blog) }}</span>
+        <h1 class="title">{{ blog.title }}</h1>
+        <span class="article_category">{{ blog.category.name }}</span>
+        <div class="post" v-html="blog.body"></div>
+      </div>
+    </main>
+    <sidebar :contents="categories.contents"></sidebar>
+  </div>
 </template>
 
 <script>
-export default {
+import axios from "axios";
+import sidebar from "~/components/sidebar.vue";
 
-}
+export default {
+  async asyncData({ params }) {
+    const responseBlog = await axios.get(
+      `https://homoludens.microcms.io/api/v1/blog/${params.slug}`,
+      {
+        headers: { "X-API-KEY": "85b1c5b7-87a5-40c6-b296-a2117a30a78a" }
+      }
+    );
+    const responseCategory = await axios.get(
+      "https://homoludens.microcms.io/api/v1/categories",
+      {
+        headers: { "X-API-KEY": "85b1c5b7-87a5-40c6-b296-a2117a30a78a" }
+      }
+    );
+    return { blog: responseBlog.data, categories: responseCategory.data };
+  },
+  methods: {
+    postedDate(content) {
+      const time = new Date(content.publishedAt);
+      const year = time.getFullYear();
+      const mon = time.getMonth() + 1;
+      const date = time.getDate();
+      const formalizedTime = `${year}/${mon}/${date}`;
+      return formalizedTime;
+    }
+  }
+};
 </script>
 
-<style>
+<style lang="scss" scoped>
+.wrapper {
+  margin-top: 20px;
+  padding: 0 15px;
+  display: block;
+  @include tablet-size {
+    padding: 0 30px;
+  }
+  @include desktop-size {
+    padding-top: 35px;
+    display: flex;
+    justify-content: space-between;
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+}
 
+.main {
+  @include desktop-size {
+    flex: 1;
+    margin-right: 5%;
+  }
+}
+
+.breadcrumb-trail {
+  list-style: none;
+  padding: 0;
+  padding-top: 20px;
+  margin-bottom: 15px;
+  display: flex;
+  li {
+    font-size: 0.8rem;
+    color: $button-color;
+    &::after {
+      content: ">";
+      margin: 0 10px;
+    }
+    &:last-child {
+      &::after {
+        content: "";
+        margin: 0;
+      }
+    }
+  }
+  a {
+    color: $button-color;
+    text-decoration: none;
+  }
+}
+
+.article {
+  &_img {
+    width: 100%;
+    margin-bottom: 20px;
+    img {
+      width: 100%;
+      box-shadow: 0 3px 6px rgba($color: #000000, $alpha: 0.16);
+    }
+  }
+  &_category {
+    display: inline-block;
+    padding: 0.2em 0.3em;
+    background-color: $image-color;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+  .publishedAt {
+    font-size: 0.8rem;
+    color: $text-color;
+  }
+  .title {
+    font-size: 1.5rem;
+    color: $text-color;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+}
 </style>

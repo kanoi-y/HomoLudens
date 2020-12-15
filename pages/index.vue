@@ -698,7 +698,7 @@ export default {
 }
 
 .area {
-  padding: 20px;
+  padding: 15px;
   @include tablet-size {
     padding: 30px;
   }
