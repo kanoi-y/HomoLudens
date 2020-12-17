@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper">
     <header>
       <div class="back none" ref="back" @click="toggleMenu"></div>
 
@@ -33,12 +33,16 @@
             </div>
             <nav>
               <ul>
-                <li><nuxt-link to="/blog" class="nav_list">ブログ</nuxt-link></li>
                 <li>
-                  <nuxt-link to="/contact" class="nav_list">お問い合わせ</nuxt-link>
+                  <nuxt-link to="/blog" class="nav_list">ブログ</nuxt-link>
                 </li>
                 <li>
-                  <nuxt-link to="/" class="nav_list">無料トライアル</nuxt-link>
+                  <nuxt-link to="/contact" class="nav_list"
+                    >お問い合わせ</nuxt-link
+                  >
+                </li>
+                <li>
+                  <nuxt-link to="/trial" class="nav_list">無料トライアル</nuxt-link>
                 </li>
               </ul>
             </nav>
@@ -67,14 +71,18 @@
       </div>
     </header>
 
-    <Nuxt />
+    <div class="main">
+      <Nuxt />
+    </div>
 
     <footer>
       <div class="footer_main">
         <ul class="footer_nav">
           <li><nuxt-link to="/blog" class="nav_list">ブログ</nuxt-link></li>
-          <li><nuxt-link to="/contact" class="nav_list">お問い合わせ</nuxt-link></li>
-          <li><nuxt-link to="/" class="nav_list">無料トライアル</nuxt-link></li>
+          <li>
+            <nuxt-link to="/contact" class="nav_list">お問い合わせ</nuxt-link>
+          </li>
+          <li><nuxt-link to="/trial" class="nav_list">無料トライアル</nuxt-link></li>
         </ul>
 
         <div class="footer_media">
@@ -140,6 +148,12 @@ html {
 </style>
 
 <style lang="scss" scoped>
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -270,6 +284,7 @@ footer {
   text-align: center;
   box-sizing: border-box;
   padding: 30px 20px 8px 20px;
+   margin-top: auto;
   @include desktop-size {
     padding-top: 45px;
   }

@@ -67,6 +67,7 @@ export default {
   @include desktop-size {
     padding-top: 35px;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     max-width: 1024px;
     margin: 0 auto;
@@ -77,6 +78,7 @@ export default {
   @include desktop-size {
     flex: 1;
     margin-right: 5%;
+    padding-bottom: 45px;
   }
 }
 
