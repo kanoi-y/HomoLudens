@@ -68,7 +68,13 @@
           />
         </svg>
       </div>
-      <div class="back"></div>
+      <video
+        src="images/Homoludens-movie.mp4"
+        class="back"
+        autoplay
+        loop
+        muted
+      ></video>
       <div class="first_title">
         <div class="first_title_desktop">
           <h1>人間は、<br />遊ぶ存在である。</h1>
@@ -321,7 +327,9 @@ export default {
   width: 100%;
   height: calc(100vh - (9vw + 20px));
   min-height: calc(100vh - 55px);
-  background-color: #818181;
+  object-fit: cover;
+  object-position: center bottom;
+  filter: brightness(80%);
 }
 
 .first_loader {
@@ -340,8 +348,8 @@ export default {
     width: 65vw;
     animation: bigAnime 1.5s infinite alternate;
     @include desktop-size {
-    width: 30vw;
-  }
+      width: 30vw;
+    }
     .cls-1 {
       animation: changeColorAnime 1.5s infinite alternate;
     }

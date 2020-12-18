@@ -7,6 +7,9 @@
           {{ checkCategory($route.params.categoryId, categories) }}
         </li>
       </ul>
+      <div class="no-article" v-if="articleCount === 0">
+        記事がありません
+      </div>
       <div class="wrapper_card">
         <div class="card" v-for="content in blogs.contents" :key="content.id">
           <nuxt-link :to="`/blog/${content.id}`" class="card_link">
@@ -27,7 +30,11 @@
         <span class="pager_item prev" :class="{ hp_visi: prevFlag }"
           ><nuxt-link
             :to="
-              `/blog/page/${
+              `/blog${
+                $route.params.categoryId === undefined
+                  ? ''
+                  : `/category/${$route.params.categoryId}`
+              }/page/${
                 isFinite($route.params.p) ? $route.params.p - 1 : ''
               }`
             "
@@ -37,16 +44,18 @@
         <span class="pager_item next" :class="{ hp_visi: nextFlag }"
           ><nuxt-link
             :to="
-              `/blog/page/${
-                isFinite($route.params.p) ? +$route.params.p + 1 : '2'
-              }`
+              `/blog${
+                $route.params.categoryId === undefined
+                  ? ''
+                  : `/category/${$route.params.categoryId}`
+              }/page/${isFinite($route.params.p) ? +$route.params.p + 1 : '2'}`
             "
             >NEXT</nuxt-link
           ></span
         >
       </div>
     </div>
-    <sidebar :contents='categories.contents'></sidebar>
+    <sidebar :contents="categories.contents"></sidebar>
   </div>
 </template>
 
@@ -77,14 +86,15 @@ export default {
       }
     );
 
-    const pagerCount = Math.ceil(responseBlog.data.totalCount / limit);
+    const articleCount = responseBlog.data.totalCount;
+    const pagerCount = Math.ceil(articleCount / limit);
     let prevFlag = false;
     let nextFlag = false;
 
-    if (page == "1") {
+    if (page === "1") {
       prevFlag = true;
     }
-    if (page == pagerCount) {
+    if (+page === pagerCount || pagerCount === 0) {
       nextFlag = true;
     }
 
@@ -92,7 +102,8 @@ export default {
       blogs: responseBlog.data,
       categories: responseCategory.data,
       prevFlag,
-      nextFlag
+      nextFlag,
+      articleCount
     };
   },
   methods: {
@@ -116,6 +127,13 @@ export default {
 <style lang="scss" scoped>
 .hp_visi {
   visibility: hidden !important;
+}
+
+.no-article {
+  color: $image-color;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 25px 0;
 }
 
 .wrapper {
@@ -213,6 +231,7 @@ export default {
           font-size: 1.2rem;
           font-weight: bold;
           color: $text-color;
+          overflow-wrap: break-word;
           @include tablet-size {
             margin-bottom: 10px;
           }
