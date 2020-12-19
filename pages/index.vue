@@ -117,7 +117,7 @@
           <div class="features_text">
             <h3>一人ひとりに合わせた授業</h3>
             <p>
-              映像教材は基本的に使用せずに講師と受講者の１対１で学習を進めます。そのため受講者の興味や理解度に合わせて、とりあえず動くゲームを作って一緒に遊んだり、
+              映像教材は基本的に使用せずに講師と受講者の１対１で学習を進めます。そのため受講者の興味や理解度に合わせて、一緒に遊びながらゲームを作ったり、
               じっくりと本格的にプログラミングを学ぶなど柔軟にオーダーメイドの授業を行うことが出来ます。
             </p>
           </div>
@@ -236,7 +236,7 @@
     <div class="trial">
       <h2>まずは、無料で授業を体験しよう！</h2>
       <div class="btn">
-        <nuxt-link to="/">無料トライアルはこちら</nuxt-link>
+        <nuxt-link to="/trial">無料トライアルはこちら</nuxt-link>
       </div>
     </div>
 
@@ -262,7 +262,7 @@
         <div class="question_content">
           <div class="question">
             <div class="speech-bubble question_bubble">Q</div>
-            <p>推奨環境を教えてください</p>
+            <p>推奨環境を教えてください。</p>
           </div>
           <div class="answer">
             <div class="speech-bubble">A</div>
