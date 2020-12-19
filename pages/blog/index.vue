@@ -26,22 +26,20 @@
           </nuxt-link>
         </div>
       </div>
-      <!-- <div class="pager">
-        <span class="pager_item prev" :class="{ hp_visi: prevFlag }"
+      <div class="pager" :class="{ flex_end : prevFlag }">
+        <span class="pager_item prev" v-if="!prevFlag"
           ><nuxt-link
             :to="
               `/blog${
                 $route.params.categoryId === undefined
                   ? ''
                   : `/category/${$route.params.categoryId}`
-              }/page/${
-                isFinite($route.params.p) ? $route.params.p - 1 : ''
-              }`
+              }/page/${isFinite($route.params.p) ? $route.params.p - 1 : ''}`
             "
             >PREV</nuxt-link
           ></span
         >
-        <span class="pager_item next" :class="{ hp_visi: nextFlag }"
+        <span class="pager_item next" v-if="!nextFlag"
           ><nuxt-link
             :to="
               `/blog${
@@ -53,7 +51,7 @@
             >NEXT</nuxt-link
           ></span
         >
-      </div> -->
+      </div>
     </div>
     <sidebar :contents="categories.contents"></sidebar>
   </div>
@@ -103,7 +101,7 @@ export default {
       categories: responseCategory.data,
       prevFlag,
       nextFlag,
-      articleCount
+      articleCount,
     };
   },
   methods: {
@@ -127,6 +125,10 @@ export default {
 <style lang="scss" scoped>
 .hp_visi {
   visibility: hidden !important;
+}
+
+.flex_end {
+ justify-content: flex-end !important;
 }
 
 .no-article {
@@ -301,5 +303,4 @@ export default {
     }
   }
 }
-
 </style>

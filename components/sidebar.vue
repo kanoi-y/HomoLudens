@@ -28,6 +28,7 @@ props: {
   margin-bottom: 45px;
   @include desktop-size {
     flex: 1;
+    max-width: 270px;
   }
   .side_category {
     padding-top: 50px;

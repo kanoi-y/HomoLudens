@@ -5,7 +5,7 @@
 
       <div class="header_inner">
         <nuxt-link to="/" class="title">
-          <img src="~/assets/images/HomoLudens_logo.svg" />
+          <img src="~/assets/images/HomoLudens_logo.svg" alt="HomoLudensのロゴ" />
         </nuxt-link>
         <!-- メニューバーのsvg -->
 
@@ -29,7 +29,7 @@
         <div class="global_nav" ref="global_nav">
           <div class="nav_inner">
             <div class="nav_title">
-              <img src="~/assets/images/HomoLudens_logo.svg" />
+              <img src="~/assets/images/HomoLudens_logo.svg" alt="HomoLudensのロゴ" />
             </div>
             <nav>
               <ul>
@@ -87,7 +87,7 @@
 
         <div class="footer_media">
           <p>ホモ・ルーデンス</p>
-          <img src="~/assets/images/HomoLudens_logo.svg" />
+          <img src="~/assets/images/HomoLudens_logo.svg" alt="HomoLudensのロゴ" />
           <p class="sub_title">
             小・中学生のためのオンライン<br />プログラミングスクール
           </p>

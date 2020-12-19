@@ -74,33 +74,33 @@
         autoplay
         loop
         muted
-      ></video>
+      >このブラウザーは埋め込み映像に対応していません。</video>
       <div class="first_title">
         <div class="first_title_desktop">
           <h1>人間は、<br />遊ぶ存在である。</h1>
           <div class="homoludens_desc">
             <p>ホモ・ルーデンス</p>
-            <img src="~/assets/images/HomoLudens_logo.svg" />
+            <img src="~/assets/images/HomoLudens_logo.svg" alt="HomoLudensのロゴ" />
             <p class="sub_title">
               小・中学生のためのオンライン<br />プログラミングスクール
             </p>
           </div>
         </div>
         <div class="btn">
-          <nuxt-link to="/">無料トライアルはこちら</nuxt-link>
+          <nuxt-link to="/trial">無料トライアルはこちら</nuxt-link>
         </div>
       </div>
     </div>
 
     <div class="features_area area">
       <div class="features_title title">
-        <img src="~/assets/images/HomoLudens_logo.svg" />
+        <img src="~/assets/images/HomoLudens_logo.svg" alt="HomoLudensのロゴ" />
         <h2>の特徴</h2>
       </div>
 
       <div class="wrapper_features_content">
         <div class="features_content">
-          <img src="~/assets/images/ludens-feature1.svg" />
+          <img src="~/assets/images/ludens-feature1.svg" alt="" />
 
           <div class="features_text">
             <h3>好きな場所で好きな時間に</h3>
@@ -112,7 +112,7 @@
         </div>
 
         <div class="features_content">
-          <img src="~/assets/images/ludens-feature2.svg" />
+          <img src="~/assets/images/ludens-feature2.svg" alt="" />
 
           <div class="features_text">
             <h3>一人ひとりに合わせた授業</h3>
@@ -124,7 +124,7 @@
         </div>
 
         <div class="features_content">
-          <img src="~/assets/images/ludens-feature3.svg" />
+          <img src="~/assets/images/ludens-feature3.svg" alt="" />
 
           <div class="features_text">
             <h3>いつでも質問できる仕組み</h3>
@@ -150,7 +150,7 @@
               srcset="images/course-image1-min.jpg"
               media="(max-width: 960px)"
             />
-            <img src="images/course-image1.jpg" />
+            <img src="images/course-image1.jpg" alt="scratch" />
           </picture>
 
           <div class="course_text">
@@ -193,7 +193,7 @@
                 srcset="images/course-image2_640.jpg"
                 media="(max-width: 960px)"
               />
-              <img src="images/course-image2_1280.jpg" />
+              <img src="images/course-image2_1280.jpg" alt="web開発" />
             </picture>
             <p class="not-ready_text">
               ※現在このコースは受付をしていません
