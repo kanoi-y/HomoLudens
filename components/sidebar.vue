@@ -27,7 +27,7 @@ props: {
 .sidebar {
   margin-bottom: 45px;
   @include desktop-size {
-    flex: 0 0 270px;
+    flex: 1;
   }
   .side_category {
     padding-top: 50px;

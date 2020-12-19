@@ -26,7 +26,7 @@
           </nuxt-link>
         </div>
       </div>
-      <div class="pager">
+      <!-- <div class="pager">
         <span class="pager_item prev" :class="{ hp_visi: prevFlag }"
           ><nuxt-link
             :to="
@@ -53,7 +53,7 @@
             >NEXT</nuxt-link
           ></span
         >
-      </div>
+      </div> -->
     </div>
     <sidebar :contents="categories.contents"></sidebar>
   </div>
@@ -302,44 +302,4 @@ export default {
   }
 }
 
-.sidebar {
-  margin-bottom: 45px;
-  @include desktop-size {
-    flex: 0 0 270px;
-  }
-  .side_category {
-    padding-top: 50px;
-    h2 {
-      color: $text-color;
-      font-size: 1.3rem;
-      background-color: $back-color;
-      padding: 0.3em 0.4em;
-      margin-bottom: 10px;
-      @include desktop-size {
-        font-size: 1.1rem;
-      }
-    }
-    .side_category_list {
-      list-style: none;
-      padding: 0;
-      li {
-        border-bottom: 1px solid $back-color;
-        &:last-child {
-          border-bottom-width: 0;
-        }
-        a {
-          display: block;
-          text-decoration: none;
-          color: $text-color;
-          font-size: 1.1rem;
-          padding: 0.4em 0.4em;
-          font-weight: bold;
-          @include desktop-size {
-            font-size: 0.9rem;
-          }
-        }
-      }
-    }
-  }
-}
 </style>
