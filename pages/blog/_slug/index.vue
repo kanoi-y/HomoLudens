@@ -11,7 +11,7 @@
       </ul>
       <div class="article">
         <figure class="article_img">
-          <img :src="`${blog.thumbnail.url}`" />
+          <img :src="`${blog.thumbnail.url}`" alt="" />
         </figure>
         <span class="publishedAt">{{ postedDate(blog) }}</span>
         <h1 class="title">{{ blog.title }}</h1>
@@ -135,6 +135,18 @@ export default {
     color: $text-color;
     font-weight: bold;
     margin-bottom: 10px;
+  }
+  .post {
+    /deep/ h1 {
+      font-size: 1.5rem;
+      padding: .3em .4em;
+      background-color: $back-color;
+      border-left: 5px solid $image-color;
+    }
+    /deep/ h2 {
+     font-size: 1.3rem;
+     border-bottom: 2px solid $back-color;
+    }
   }
 }
 </style>

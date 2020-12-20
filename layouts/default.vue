@@ -5,7 +5,7 @@
 
       <div class="header_inner">
         <nuxt-link to="/" class="title">
-          <img src="~/assets/images/HomoLudens_logo.svg" alt="HomoLudensのロゴ" />
+          <img src="~/assets/images/HomoLudens_logo.svg" alt="HomoLudensのロゴ" class="header_title_img" />
         </nuxt-link>
         <!-- メニューバーのsvg -->
 
@@ -31,7 +31,7 @@
             <div class="nav_title">
               <img src="~/assets/images/HomoLudens_logo.svg" alt="HomoLudensのロゴ" />
             </div>
-            <nav>
+            <nav class="nav_contents">
               <ul>
                 <li>
                   <nuxt-link to="/blog" class="nav_list">ブログ</nuxt-link>
@@ -93,7 +93,7 @@
           </p>
         </div>
       </div>
-      <small>🄫 2020 HomoLudens</small>
+      <small class="small">🄫 2020 HomoLudens</small>
     </footer>
   </div>
 </template>
@@ -173,7 +173,7 @@ header {
       display: block;
       height: 9vw;
       max-height: 35px;
-      img {
+      .header_title_img {
         height: 100%;
       }
     }
@@ -226,7 +226,7 @@ header {
             max-height: 35px;
           }
         }
-        nav {
+        .nav_contents {
           ul {
             display: flex;
             flex-direction: column;
@@ -340,7 +340,7 @@ footer {
       }
     }
   }
-  small {
+  .small {
     color: #fff;
     @include desktop-size {
       font-size: 0.7rem;

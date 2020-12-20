@@ -95,7 +95,7 @@
     <div class="features_area area">
       <div class="features_title title">
         <img src="~/assets/images/HomoLudens_logo.svg" alt="HomoLudensのロゴ" />
-        <h2>の特徴</h2>
+        <h2 class="title_text">の特徴</h2>
       </div>
 
       <div class="wrapper_features_content">
@@ -139,7 +139,7 @@
 
     <div class="course_area area">
       <div class="title">
-        <h2>コースの内容</h2>
+        <h2 class="title_text">コースの内容</h2>
       </div>
 
       <div class="wrapper_course_content">
@@ -183,7 +183,7 @@
 
         <div class="course_content">
           <h3>
-            WEB開発コース<small>※現在このコースは受付をしていません</small>
+            WEB開発コース<small class="small">※現在このコースは受付をしていません</small>
           </h3>
 
           <!-- 準備が出来たらdivとpを消す -->
@@ -242,7 +242,7 @@
 
     <div class="question_area area">
       <div class="title">
-        <h2>よくあるご質問</h2>
+        <h2 class="title_text">よくあるご質問</h2>
       </div>
 
       <div class="wrapper_question_contents">
@@ -527,7 +527,7 @@ export default {
         margin-bottom: 40px;
       }
     }
-    small {
+    .small {
       font-size: 0.7rem;
       color: $button-color;
     }
@@ -719,7 +719,7 @@ export default {
   @include tablet-size {
     margin-bottom: 70px;
   }
-  h2 {
+  .title_text {
     font-size: 1.8rem;
     color: $text-color;
   }

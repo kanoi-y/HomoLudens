@@ -14,7 +14,7 @@
         <div class="card" v-for="content in blogs.contents" :key="content.id">
           <nuxt-link :to="`/blog/${content.id}`" class="card_link">
             <figure class="card_wrapper-img">
-              <img :src="`${content.thumbnail.url}`" />
+              <img :src="`${content.thumbnail.url}`" alt="" />
             </figure>
             <div class="card_body">
               <h3>{{ content.title }}</h3>
