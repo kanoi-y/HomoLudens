@@ -179,7 +179,8 @@ header {
     }
     .menu_ionicon {
       width: 9vw;
-      max-width: 40px;
+      height: 100%;
+      max-width: 35px;
       color: #646363;
       display: block;
       @include desktop-size {

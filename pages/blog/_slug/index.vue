@@ -135,6 +135,7 @@ export default {
     color: $text-color;
     font-weight: bold;
     margin-bottom: 10px;
+    word-break: break-word;
   }
   .post {
     /deep/ h1 {
