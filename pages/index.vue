@@ -73,7 +73,7 @@
       </video>
       <div class="first_title">
         <div class="first_title_desktop">
-          <h1>人間は、<br />遊ぶ存在である。</h1>
+          <h1 class="first_title_main">人間は、<br />遊ぶ存在である。</h1>
           <div class="homoludens_desc">
             <p>ホモ・ルーデンス</p>
             <img
@@ -81,7 +81,7 @@
               alt="HomoLudensのロゴ"
             />
             <p class="sub_title">
-              小・中学生のためのオンライン<br />プログラミングスクール
+              小・中学生のためのオンライン<br />プログラミングサービス
             </p>
           </div>
         </div>
@@ -93,7 +93,7 @@
 
     <div class="features_area area">
       <div class="features_title title">
-        <img src="~/assets/images/HomoLudens_logo.svg" alt="HomoLudensのロゴ" loading="lazy" />
+        <img class="features_title_img" src="~/assets/images/HomoLudens_logo.svg" alt="HomoLudensのロゴ" loading="lazy" />
         <h2 class="title_text">の特徴</h2>
       </div>
 
@@ -235,7 +235,7 @@
     <!-- content_area -->
 
     <div class="trial">
-      <h2>まずは、無料で授業を体験しよう！</h2>
+      <h2 class="trial_title">まずは、無料で授業を体験しよう！</h2>
       <div class="btn">
         <nuxt-link to="/trial">無料トライアルはこちら</nuxt-link>
       </div>
@@ -314,26 +314,48 @@
 
 <script>
 export default {
+  created() {
+   if (process.client) {
+      window.addEventListener('resize', this.handleResize)
+      this.handleResize()
+    }
+  },
   mounted() {
     this.$nextTick(function() {
       const firstLoader = this.$refs.first_loader;
       firstLoader.classList.add("none_class");
     });
+  },
+  destroyed () {
+    if (process.client) {
+      window.removeEventListener('resize', this.handleResize)
+    }
+  },
+  methods: {
+    handleResize () {
+      const height = window.innerHeight
+      document.documentElement.style.setProperty('--vh', height/100 + 'px');
+    }
   }
 };
 </script>
 
+
 <style lang="scss" scoped>
+:root {
+  --vh: 100px;
+}
+
 .back {
   width: 100%;
-  height: calc(100vh - (9vw + 20px));
-  min-height: calc(100vh - 56px);
+  height: calc(100 * var(--vh) - (9vw + 21px));
+  min-height: calc(100 * var(--vh) - 56px);
   object-fit: cover;
   object-position: center bottom;
   filter: brightness(80%);
   @include tablet-size {
     min-height: 780px;
-    height: calc(100vh - 56px);
+    height: calc(100 * var(--vh) - 56px);
   }
   @include desktop-size {
     min-height: 550px;
@@ -418,7 +440,7 @@ export default {
         justify-content: center;
         margin-bottom: 13vh;
       }
-      h1 {
+      .first_title_main {
         margin: 0 auto;
         margin-bottom: 30px;
         color: #fff;
@@ -460,7 +482,7 @@ export default {
 }
 
 .features_title {
-  img {
+  .features_title_img {
     width: 70vw;
     max-width: 330px;
   }
@@ -469,8 +491,6 @@ export default {
 .wrapper_features_content {
   text-align: center;
   .features_content {
-    // display: flex;
-    // flex-direction: column;
     display: block;
     background-color: $back-color;
     border-radius: 16px;
@@ -482,7 +502,6 @@ export default {
     }
     @include desktop-size {
       display: flex;
-      // flex-direction: row;
       max-width: 800px;
       margin: 0 auto 60px;
       padding: 20px;
@@ -665,7 +684,7 @@ export default {
   @include desktop-size {
     padding: 50px 15px;
   }
-  h2 {
+  &_title {
     font-size: 1.2rem;
     color: $text-color;
     margin-bottom: 20px;

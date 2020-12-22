@@ -89,7 +89,7 @@
           <p>ホモ・ルーデンス</p>
           <img src="~/assets/images/HomoLudens_logo.svg" alt="HomoLudensのロゴ" />
           <p class="sub_title">
-            小・中学生のためのオンライン<br />プログラミングスクール
+            小・中学生のためのオンライン<br />プログラミングサービス
           </p>
         </div>
       </div>

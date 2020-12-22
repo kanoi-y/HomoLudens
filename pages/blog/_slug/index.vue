@@ -140,13 +140,18 @@ export default {
   .post {
     /deep/ h1 {
       font-size: 1.5rem;
+      margin: 40px 0 20px;
       padding: .3em .4em;
       background-color: $back-color;
       border-left: 5px solid $image-color;
     }
     /deep/ h2 {
      font-size: 1.3rem;
+     margin: 35px 0 15px;
      border-bottom: 2px solid $back-color;
+    }
+    /deep/ img {
+      width: 100%;
     }
   }
 }
