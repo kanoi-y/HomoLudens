@@ -143,7 +143,7 @@
 
       <div class="wrapper_course_content">
         <div class="course_content">
-          <h3>Scratchコース</h3>
+          <h3 class="course_content_title">Scratchコース</h3>
           <picture>
             <source
               srcset="images/course-image1-min.jpg"
@@ -181,7 +181,7 @@
         <!-- course_content -->
 
         <div class="course_content">
-          <h3>
+          <h3 class="course_content_title">
             WEB開発コース<small class="small"
               >※現在このコースは受付をしていません</small
             >
@@ -546,7 +546,7 @@ export default {
       max-width: 800px;
       margin: 0 auto 70px;
     }
-    h3 {
+    &_title {
       color: $image-color;
       font-size: 1.4rem;
       margin-bottom: 10px;

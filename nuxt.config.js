@@ -8,12 +8,40 @@ export default {
   head: {
     title: "HomoLudens -ホモ・ルーデンス-",
     htmlAttrs: {
-      lang: "ja"
+      lang: "ja",
+      prefix: "og: http://ogp.me/ns#"
     },
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "小・中学生のためのオンラインプログラミングスクール" }
+      {
+        hid: "description",
+        name: "description",
+        content: "小・中学生のためのオンラインプログラミングサービス"
+      },
+      {
+        hid: "og:site_name",
+        property: "og:site_name",
+        content: "HomoLudens -ホモ・ルーデンス-"
+      },
+      { hid: "og:type", property: "og:type", content: "website" },
+      { hid: "og:url", property: "og:url", content: "https://homoludens.dev/" },
+      {
+        hid: "og:title",
+        property: "og:title",
+        content: "HomoLudens -ホモ・ルーデンス-"
+      },
+      {
+        hid: "og:description",
+        property: "og:description",
+        content: "小・中学生のためのオンラインプログラミングサービス"
+      },
+      {
+        hid: "og:image",
+        property: "og:image",
+        content: "images/homoludens_ogp.png"
+      },
+      { name: "twitter:card", content: "summary_large_image" }
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
