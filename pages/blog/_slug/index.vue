@@ -28,6 +28,16 @@ import axios from "axios";
 import sidebar from "~/components/sidebar.vue";
 
 export default {
+  head() {
+    return {
+      meta: [
+      { hid: "og:type", property: "og:type", content: "article" },
+        { hid: 'og:title', property: 'og:title', content: `${ this.blog.title }` },
+        { hid: 'og:url', property: 'og:url', content: `https://homoludens.dev/blog/${ this.blog.id }` },
+        { hid: 'og:image', property: 'og:image', content: `${ this.blog.thumbnail.url }` },
+      ]
+    }
+  },
   async asyncData({ params }) {
     const responseBlog = await axios.get(
       `https://homoludens.microcms.io/api/v1/blog/${params.slug}`,
