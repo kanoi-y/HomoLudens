@@ -93,13 +93,22 @@
 
     <div class="features_area area">
       <div class="features_title title">
-        <img class="features_title_img" src="~/assets/images/HomoLudens_logo.svg" alt="HomoLudensのロゴ" loading="lazy" />
+        <img
+          class="features_title_img"
+          src="~/assets/images/HomoLudens_logo.svg"
+          alt="HomoLudensのロゴ"
+          loading="lazy"
+        />
         <h2 class="title_text">の特徴</h2>
       </div>
 
       <div class="wrapper_features_content">
         <div class="features_content">
-          <img src="~/assets/images/ludens-feature1.svg" alt="" loading="lazy" />
+          <img
+            src="~/assets/images/ludens-feature1.svg"
+            alt=""
+            loading="lazy"
+          />
 
           <div class="features_text">
             <h3>好きな場所で好きな時間に</h3>
@@ -111,7 +120,11 @@
         </div>
 
         <div class="features_content">
-          <img src="~/assets/images/ludens-feature2.svg" alt="" loading="lazy" />
+          <img
+            src="~/assets/images/ludens-feature2.svg"
+            alt=""
+            loading="lazy"
+          />
 
           <div class="features_text">
             <h3>一人ひとりに合わせた授業</h3>
@@ -123,12 +136,16 @@
         </div>
 
         <div class="features_content">
-          <img src="~/assets/images/ludens-feature3.svg" alt="" loading="lazy" />
+          <img
+            src="~/assets/images/ludens-feature3.svg"
+            alt=""
+            loading="lazy"
+          />
 
           <div class="features_text">
             <h3>いつでも質問できる仕組み</h3>
             <p>
-              授業中にいつでも質問、相談できるのはもちろんのこと、授業外でもHomoLudensの公式LINEアカウントからいつでも質問することが出来ます。
+              授業中にいつでも質問、相談できるのはもちろんのこと、授業外でもHomoLudensの公式LINEアカウントからいつでも質問することが出来ます。（LINEアカウントはお申込み時にメールにてお伝えします）
               <br />授業で分からなかったところや、自作したプログラムについてでも構いません。様々な質問に真摯にお答えします。
             </p>
           </div>
@@ -194,7 +211,11 @@
                 srcset="images/course-image2_640.jpg"
                 media="(max-width: 960px)"
               />
-              <img src="images/course-image2_1280.jpg" alt="web開発" loading="lazy" />
+              <img
+                src="images/course-image2_1280.jpg"
+                alt="web開発"
+                loading="lazy"
+              />
             </picture>
             <p class="not-ready_text">
               ※現在このコースは受付をしていません
@@ -292,7 +313,7 @@
                 ２、申し込み後、ご登録いただいたメールアドレスに必要なURLや日時などを記載したメールが届きます。
               </p>
               <p>
-                ３、指定した日時になりましたら、メールに記載されたURLにアクセスして体験授業を受講して下さい（事前にzoomの設定をしておく必要があります)<br />分からない点はメールやLINEでご連絡ください。（LINEアカウントはお申込み時にメールでお伝えします）
+                ３、指定した日時になりましたら、メールに記載されたURLにアクセスして体験授業を受講して下さい（事前にzoomの設定をしておく必要があります)<br />分からない点はメールやLINEでご連絡ください。（LINEアカウントはお申込み時にメールにてお伝えします）
               </p>
               <p>
                 ４、体験授業を受講してコースを続けたいと思った場合は、受講する曜日と時間を講師と相談しながら決定します。
@@ -315,9 +336,9 @@
 <script>
 export default {
   created() {
-   if (process.client) {
-      window.addEventListener('resize', this.handleResize)
-      this.handleResize()
+    if (process.client) {
+      window.addEventListener("resize", this.handleResize);
+      this.handleResize();
     }
   },
   mounted() {
@@ -326,20 +347,19 @@ export default {
       firstLoader.classList.add("none_class");
     });
   },
-  destroyed () {
+  destroyed() {
     if (process.client) {
-      window.removeEventListener('resize', this.handleResize)
+      window.removeEventListener("resize", this.handleResize);
     }
   },
   methods: {
-    handleResize () {
-      const height = window.innerHeight
-      document.documentElement.style.setProperty('--vh', height/100 + 'px');
+    handleResize() {
+      const height = window.innerHeight;
+      document.documentElement.style.setProperty("--vh", height / 100 + "px");
     }
   }
 };
 </script>
-
 
 <style lang="scss" scoped>
 :root {
@@ -359,7 +379,7 @@ export default {
   }
   @include desktop-size {
     min-height: 550px;
-    }
+  }
 }
 
 .first_loader {
@@ -505,6 +525,7 @@ export default {
       max-width: 800px;
       margin: 0 auto 60px;
       padding: 20px;
+      align-items: center;
     }
     img {
       margin-bottom: 12px;

@@ -39,9 +39,10 @@ export default {
       {
         hid: "og:image",
         property: "og:image",
-        content: "images/homoludens_ogp.png"
+        content: "https://homoludens.dev/images/homoludens_ogp.png"
       },
-      { name: "twitter:card", content: "summary_large_image" }
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@kanoi_y" } 
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },

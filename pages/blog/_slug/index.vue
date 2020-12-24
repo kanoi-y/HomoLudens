@@ -99,6 +99,9 @@ export default {
   margin-bottom: 15px;
   display: flex;
   li {
+    display: flex;
+    align-items: center;
+    text-align: center;
     font-size: 0.8rem;
     color: $button-color;
     &::after {
