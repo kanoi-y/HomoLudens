@@ -42,7 +42,7 @@ export default {
         content: "https://homoludens.dev/images/homoludens_ogp.png"
       },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@kanoi_y" } 
+      { name: "twitter:site", content: "@kanoi_y" }
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
@@ -63,8 +63,13 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     "@nuxtjs/axios",
-    "@nuxtjs/style-resources"
+    "@nuxtjs/style-resources",
+    "@nuxtjs/google-gtag"
   ],
+  "google-gtag": {
+    id: "G-G5MQ11Z3RX", //サイトのID
+    debug: false
+  },
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
