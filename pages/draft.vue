@@ -31,8 +31,8 @@ import axios from "axios";
 export default {
   data() {
     return {
-      blog: {},
-      categories: {}
+      blog: '',
+      categories: ''
     };
   },
   async created() {
@@ -53,8 +53,8 @@ export default {
         headers: { "X-API-KEY": "85b1c5b7-87a5-40c6-b296-a2117a30a78a" }
       }
     );
-    this.blog = responseBlog;
-    this.categories = responseCategory;
+    this.blog = responseBlog.data;
+    this.categories = responseCategory.data;
   },
   methods: {
     postedDate(content) {
