@@ -5,7 +5,11 @@
 
       <div class="header_inner">
         <nuxt-link to="/" class="title">
-          <img src="~/assets/images/HomoLudens_logo.svg" alt="HomoLudensのロゴ" class="header_title_img" />
+          <img
+            src="~/assets/images/HomoLudens_logo.svg"
+            alt="HomoLudensのロゴ"
+            class="header_title_img"
+          />
         </nuxt-link>
         <!-- メニューバーのsvg -->
 
@@ -29,7 +33,13 @@
         <div class="global_nav" ref="global_nav">
           <div class="nav_inner">
             <div class="nav_title">
-              <img src="~/assets/images/HomoLudens_logo.svg" alt="HomoLudensのロゴ" />
+              <nuxt-link to="/" class="title">
+                <img
+                  src="~/assets/images/HomoLudens_logo.svg"
+                  alt="HomoLudensのロゴ"
+                  class="header_title_img"
+                />
+              </nuxt-link>
             </div>
             <nav class="nav_contents">
               <ul>
@@ -42,7 +52,9 @@
                   >
                 </li>
                 <li>
-                  <nuxt-link to="/trial" class="nav_list">無料トライアル</nuxt-link>
+                  <nuxt-link to="/trial" class="nav_list"
+                    >無料トライアル</nuxt-link
+                  >
                 </li>
               </ul>
             </nav>
@@ -82,12 +94,17 @@
           <li>
             <nuxt-link to="/contact" class="nav_list">お問い合わせ</nuxt-link>
           </li>
-          <li><nuxt-link to="/trial" class="nav_list">無料トライアル</nuxt-link></li>
+          <li>
+            <nuxt-link to="/trial" class="nav_list">無料トライアル</nuxt-link>
+          </li>
         </ul>
 
         <div class="footer_media">
           <p>ホモ・ルーデンス</p>
-          <img src="~/assets/images/HomoLudens_logo.svg" alt="HomoLudensのロゴ" />
+          <img
+            src="~/assets/images/HomoLudens_logo.svg"
+            alt="HomoLudensのロゴ"
+          />
           <p class="sub_title">
             小・中学生のためのオンライン<br />プログラミングサービス
           </p>
@@ -222,10 +239,6 @@ header {
           @include desktop-size {
             display: none;
           }
-          img {
-            height: 10vw;
-            max-height: 35px;
-          }
         }
         .nav_contents {
           ul {
@@ -285,7 +298,7 @@ footer {
   text-align: center;
   box-sizing: border-box;
   padding: 30px 20px 8px 20px;
-   margin-top: auto;
+  margin-top: auto;
   @include desktop-size {
     padding-top: 45px;
   }

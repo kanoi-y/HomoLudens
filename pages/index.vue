@@ -175,7 +175,7 @@
               <p class="osusume">初めてプログラミングに挑戦する人</p>
               <p class="osusume">自分でゲームを作ってみたい人</p>
               <p>
-                マサチューセッツ工科大学が開発したプログラミング教材「Scratch」をメインに使用して、プログラミングを学びます。
+                マサチューセッツ工科大学が開発したプログラミング教材「Scratch」をメインに使用して、プログラミングの基本を学びます。
                 <br />アニメーションやゲームを作りながら、楽しくスキルを伸ばしていきます。
               </p>
             </div>
@@ -229,7 +229,7 @@
               <p class="osusume">ホームページやブログを作ってみたい人</p>
               <p>
                 web開発で主に使用されているプログラミング言語であるHTML,CSS,JavaScriptなどを学びます。
-                <br />実際にwebサイトやwebアプリをつくりながら、将来に役立つようなスキルを身に着けます。
+                <br />実際にwebサイトやwebアプリをつくりながら、将来に役立つようなスキルを身に付けます。
               </p>
             </div>
 
@@ -633,6 +633,7 @@ export default {
           "left-five  right-five  "
           / 2fr 3fr;
         gap: 6px 8px;
+        align-items: center;
         @include tablet-size {
           margin-top: 30px;
           gap: 10px 15px;
