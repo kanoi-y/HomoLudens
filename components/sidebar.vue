@@ -1,7 +1,7 @@
 <template>
   <aside class="sidebar">
       <div class="side_category">
-        <h2>カテゴリー</h2>
+        <h2 class="side_category_title">カテゴリー</h2>
         <ul class="side_category_list">
           <li v-for="content in contents" :key="content.id">
             <nuxt-link :to="`/blog/category/${content.id}/page/1`">{{
@@ -32,7 +32,7 @@ props: {
   }
   .side_category {
     padding-top: 50px;
-    h2 {
+    &_title {
       color: $text-color;
       font-size: 1.3rem;
       background-color: $back-color;

@@ -31,12 +31,24 @@ export default {
   head() {
     return {
       meta: [
-      { hid: "og:type", property: "og:type", content: "article" },
-        { hid: 'og:title', property: 'og:title', content: `${ this.blog.title }` },
-        { hid: 'og:url', property: 'og:url', content: `https://homoludens.dev/blog/${ this.blog.id }` },
-        { hid: 'og:image', property: 'og:image', content: `${ this.blog.thumbnail.url }` },
+        { hid: "og:type", property: "og:type", content: "article" },
+        {
+          hid: "og:title",
+          property: "og:title",
+          content: `${this.blog.title}`
+        },
+        {
+          hid: "og:url",
+          property: "og:url",
+          content: `https://homoludens.dev/blog/${this.blog.id}`
+        },
+        {
+          hid: "og:image",
+          property: "og:image",
+          content: `${this.blog.thumbnail.url}`
+        }
       ]
-    }
+    };
   },
   async asyncData({ params }) {
     const responseBlog = await axios.get(
@@ -154,17 +166,30 @@ export default {
     /deep/ h1 {
       font-size: 1.5rem;
       margin: 40px 0 20px;
-      padding: .3em .4em;
+      padding: 0.3em 0.4em;
       background-color: $back-color;
       border-left: 5px solid $image-color;
     }
     /deep/ h2 {
-     font-size: 1.3rem;
-     margin: 35px 0 15px;
-     border-bottom: 2px solid $back-color;
+      font-size: 1.3rem;
+      margin: 35px 0 15px;
+      border-bottom: 2px solid $back-color;
     }
     /deep/ img {
       width: 100%;
+    }
+    /deep/ pre {
+      margin: 20px 0;
+      overflow-x: auto;
+      border-radius: 4px;
+      word-break: normal;
+      display: flex;
+      background-color: #2c2d3a;
+      code {
+        display: block;
+        padding: 1.1rem;
+        color: #fff;
+      }
     }
   }
 }
