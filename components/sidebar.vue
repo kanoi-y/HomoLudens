@@ -1,6 +1,6 @@
 <template>
   <aside class="sidebar">
-    <div class="side_search">
+    <div class="side_search" v-if="checkRoute">
       <input
         class="side_search_input"
         type="text"
@@ -31,6 +31,15 @@ export default {
   props: {
     contents: {
       type: Array
+    }
+  },
+  computed: {
+    checkRoute() {
+      if(this.$route.path === "/blog/search") {
+        return false
+      } else {
+        return true
+      }
     }
   },
   methods: {
@@ -90,7 +99,7 @@ export default {
       width: 100%;
       border: 2px solid $back-color;
       color: $text-color;
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: bold;
       padding: 0.5em;
       border-radius: 8px;

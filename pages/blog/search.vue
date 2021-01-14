@@ -5,7 +5,21 @@
         <li><nuxt-link to="/blog">ブログ一覧</nuxt-link></li>
         <li>「{{ $route.query.q }}」の検索結果</li>
       </ul>
-      <h1 class="search_title">「{{ $route.query.q }}」の検索結果</h1>
+      <!-- <h1 class="search_title">「{{ $route.query.q }}」の検索結果</h1> -->
+      <div class="side_search">
+        <input
+          class="side_search_input"
+          type="text"
+          placeholder="キーワードを入力"
+          @keyup.enter="reSearch"
+          :value="$route.query.q"
+        />
+        <img
+          src="~/assets/images/search-outline.svg"
+          alt="検索フォームの虫眼鏡"
+          class="side_search_img"
+        />
+      </div>
       <div class="no-article" v-if="articleCount === 0">
         記事がありません
       </div>
@@ -52,7 +66,8 @@
         >
       </div>
     </div>
-    <sidebar :contents="categories.contents"></sidebar>
+
+    <sidebar :contents="categories.contents"> </sidebar>
   </div>
 </template>
 
@@ -62,47 +77,21 @@ import sidebar from "~/components/sidebar.vue";
 
 export default {
   components: { sidebar },
-  watchQuery: ["q"],
-  async asyncData({ params, query }) {
-    const page = params.p || "1";
-    const categoryId = params.categoryId;
-    const limit = 10;
-    const responseBlog = await axios.get(
-      // your-service-id部分は自分のサービスidに置き換えてください
-      `https://homoludens.microcms.io/api/v1/blog?limit=${limit}${
-        categoryId === undefined ? "" : `&filters=category[equals]${categoryId}`
-      }&offset=${(page - 1) * limit}&q=${query.q}`,
-      {
-        // your-api-key部分は自分のapi-keyに置き換えてください
-        headers: { "X-API-KEY": "85b1c5b7-87a5-40c6-b296-a2117a30a78a" }
-      }
-    );
-    const responseCategory = await axios.get(
-      "https://homoludens.microcms.io/api/v1/categories",
-      {
-        headers: { "X-API-KEY": "85b1c5b7-87a5-40c6-b296-a2117a30a78a" }
-      }
-    );
-
-    const articleCount = responseBlog.data.totalCount;
-    const pagerCount = Math.ceil(articleCount / limit);
-    let prevFlag = false;
-    let nextFlag = false;
-
-    if (page === "1") {
-      prevFlag = true;
-    }
-    if (+page === pagerCount || pagerCount === 0) {
-      nextFlag = true;
-    }
-
+  data() {
     return {
-      blogs: responseBlog.data,
-      categories: responseCategory.data,
-      prevFlag,
-      nextFlag,
-      articleCount
+      blogs: "",
+      categories: "",
+      prevFlag: false,
+      nextFlag: false,
+      articleCount: ""
     };
+  },
+  created() {
+    this.search();
+  },
+  beforeRouteUpdate(to, from, next) {
+    next();
+    this.search();
   },
   methods: {
     postedDate(content) {
@@ -112,12 +101,50 @@ export default {
       const date = time.getDate();
       const formalizedTime = `${year}/${mon}/${date}`;
       return formalizedTime;
+    },
+    async search() {
+      const page = this.$route.params.p || "1";
+      const categoryId = this.$route.params.categoryId;
+      const limit = 10;
+      if (this.$route.query.q === undefined) return;
+      const responseBlog = await axios.get(
+        // your-service-id部分は自分のサービスidに置き換えてください
+        `https://homoludens.microcms.io/api/v1/blog?limit=${limit}${
+          categoryId === undefined
+            ? ""
+            : `&filters=category[equals]${categoryId}`
+        }&offset=${(page - 1) * limit}&q=${this.$route.query.q}`,
+        {
+          // your-api-key部分は自分のapi-keyに置き換えてください
+          headers: { "X-API-KEY": "85b1c5b7-87a5-40c6-b296-a2117a30a78a" }
+        }
+      );
+
+      const responseCategory = await axios.get(
+        "https://homoludens.microcms.io/api/v1/categories",
+        {
+          headers: { "X-API-KEY": "85b1c5b7-87a5-40c6-b296-a2117a30a78a" }
+        }
+      );
+
+      this.articleCount = responseBlog.data.totalCount;
+      const pagerCount = Math.ceil(this.articleCount / limit);
+
+      if (page === "1") {
+        this.prevFlag = true;
+      }
+      if (+page === pagerCount || pagerCount === 0) {
+        this.nextFlag = true;
+      }
+
+      this.blogs = responseBlog.data;
+      this.categories = responseCategory.data;
+
+    },
+    reSearch(e) {
+      if (e.target.value === "") return;
+      this.$router.push(`/blog/search?q=${e.target.value}`);
     }
-    // checkCategory(id = "", categories) {
-    //   if (id === "") return;
-    //   const result = categories.contents.filter(content => content.id === id);
-    //   return result[0].name;
-    // }
   }
 };
 </script>
@@ -309,6 +336,33 @@ export default {
     a {
       padding-right: 0.3em;
     }
+  }
+}
+
+.side_search {
+  position: relative;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  &_input {
+    width: 100%;
+    border: 2px solid $back-color;
+    color: $text-color;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.5em;
+    border-radius: 8px;
+    outline: none;
+  }
+  &_img {
+    display: block;
+    position: absolute;
+    right: 15px;
+    width: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    z-index: 100;
   }
 }
 </style>
