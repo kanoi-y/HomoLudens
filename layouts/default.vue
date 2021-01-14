@@ -9,6 +9,7 @@
             src="~/assets/images/HomoLudens_logo.svg"
             alt="HomoLudensのロゴ"
             class="header_title_img"
+
           />
         </nuxt-link>
         <!-- メニューバーのsvg -->

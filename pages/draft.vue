@@ -31,8 +31,8 @@ import axios from "axios";
 export default {
   data() {
     return {
-      blog: '',
-      categories: ''
+      blog: "",
+      categories: ""
     };
   },
   async created() {
@@ -168,6 +168,19 @@ export default {
     }
     /deep/ img {
       width: 100%;
+    }
+    /deep/ pre {
+      margin: 20px 0;
+      overflow-x: auto;
+      border-radius: 4px;
+      word-break: normal;
+      display: flex;
+      background-color: #2c2d3a;
+      code {
+        display: block;
+        padding: 1.1rem;
+        color: #fff;
+      }
     }
   }
 }

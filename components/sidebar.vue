@@ -1,26 +1,45 @@
 <template>
   <aside class="sidebar">
-      <div class="side_category">
-        <h2 class="side_category_title">カテゴリー</h2>
-        <ul class="side_category_list">
-          <li v-for="content in contents" :key="content.id">
-            <nuxt-link :to="`/blog/category/${content.id}/page/1`">{{
-              content.name
-            }}</nuxt-link>
-          </li>
-        </ul>
-      </div>
-    </aside>
+    <div class="side_search">
+      <input
+        class="side_search_input"
+        type="text"
+        placeholder="キーワードを入力"
+        @keyup.enter="search"
+      />
+      <img
+        src="~/assets/images/search-outline.svg"
+        alt="検索フォームの虫眼鏡"
+        class="side_search_img"
+      />
+    </div>
+    <div class="side_category">
+      <h2 class="side_category_title">カテゴリー</h2>
+      <ul class="side_category_list">
+        <li v-for="content in contents" :key="content.id">
+          <nuxt-link :to="`/blog/category/${content.id}/page/1`">{{
+            content.name
+          }}</nuxt-link>
+        </li>
+      </ul>
+    </div>
+  </aside>
 </template>
 
 <script>
 export default {
-props: {
- contents : {
-     type: Array
- }
-},
-}
+  props: {
+    contents: {
+      type: Array
+    }
+  },
+  methods: {
+    search(e) {
+      if (e.target.value === "") return;
+      this.$router.push(`/blog/search?q=${e.target.value}`);
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -62,6 +81,31 @@ props: {
           }
         }
       }
+    }
+  }
+  .side_search {
+    position: relative;
+    margin-top: 50px;
+    &_input {
+      width: 100%;
+      border: 2px solid $back-color;
+      color: $text-color;
+      font-size: 1.1rem;
+      font-weight: bold;
+      padding: 0.5em;
+      border-radius: 8px;
+      outline: none;
+    }
+    &_img {
+      display: block;
+      position: absolute;
+      right: 15px;
+      width: 25px;
+      top: 50%;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      z-index: 100;
     }
   }
 }

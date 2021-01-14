@@ -3,10 +3,9 @@
     <div class="main">
       <ul class="breadcrumb-trail">
         <li><nuxt-link to="/blog">ブログ一覧</nuxt-link></li>
-        <li>
-          {{ checkCategory($route.params.categoryId, categories) }}
-        </li>
+        <li>「{{ $route.query.q }}」の検索結果</li>
       </ul>
+      <h1 class="search_title">「{{ $route.query.q }}」の検索結果</h1>
       <div class="no-article" v-if="articleCount === 0">
         記事がありません
       </div>
@@ -26,7 +25,7 @@
           </nuxt-link>
         </div>
       </div>
-      <div class="pager" :class="{ flex_end : prevFlag }">
+      <div class="pager" :class="{ flex_end: prevFlag }">
         <span class="pager_item prev" v-if="!prevFlag"
           ><nuxt-link
             :to="
@@ -63,7 +62,8 @@ import sidebar from "~/components/sidebar.vue";
 
 export default {
   components: { sidebar },
-  async asyncData({ params }) {
+  watchQuery: ["q"],
+  async asyncData({ params, query }) {
     const page = params.p || "1";
     const categoryId = params.categoryId;
     const limit = 10;
@@ -71,7 +71,7 @@ export default {
       // your-service-id部分は自分のサービスidに置き換えてください
       `https://homoludens.microcms.io/api/v1/blog?limit=${limit}${
         categoryId === undefined ? "" : `&filters=category[equals]${categoryId}`
-      }&offset=${(page - 1) * limit}`,
+      }&offset=${(page - 1) * limit}&q=${query.q}`,
       {
         // your-api-key部分は自分のapi-keyに置き換えてください
         headers: { "X-API-KEY": "85b1c5b7-87a5-40c6-b296-a2117a30a78a" }
@@ -101,7 +101,7 @@ export default {
       categories: responseCategory.data,
       prevFlag,
       nextFlag,
-      articleCount,
+      articleCount
     };
   },
   methods: {
@@ -112,12 +112,12 @@ export default {
       const date = time.getDate();
       const formalizedTime = `${year}/${mon}/${date}`;
       return formalizedTime;
-    },
-    checkCategory(id = "", categories) {
-      if (id === "") return;
-      const result = categories.contents.filter(content => content.id === id);
-      return result[0].name;
     }
+    // checkCategory(id = "", categories) {
+    //   if (id === "") return;
+    //   const result = categories.contents.filter(content => content.id === id);
+    //   return result[0].name;
+    // }
   }
 };
 </script>
@@ -128,7 +128,7 @@ export default {
 }
 
 .flex_end {
- justify-content: flex-end !important;
+  justify-content: flex-end !important;
 }
 
 .no-article {
@@ -186,6 +186,14 @@ export default {
     color: $button-color;
     text-decoration: none;
   }
+}
+
+.search_title {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 15px;
+  color: $text-color;
+  word-break: break-all;
 }
 
 .wrapper_card {

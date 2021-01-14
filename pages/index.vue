@@ -528,8 +528,11 @@ export default {
       align-items: center;
     }
     img {
+      width: 100%;
+      height: auto;
       margin-bottom: 12px;
       @include desktop-size {
+        margin-bottom: 0;
         margin-right: 30px;
         flex: 0 0 330px;
         max-width: 330px;
