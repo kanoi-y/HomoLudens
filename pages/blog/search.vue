@@ -5,7 +5,6 @@
         <li><nuxt-link to="/blog">ブログ一覧</nuxt-link></li>
         <li>「{{ $route.query.q }}」の検索結果</li>
       </ul>
-      <!-- <h1 class="search_title">「{{ $route.query.q }}」の検索結果</h1> -->
       <div class="side_search">
         <input
           class="side_search_input"
@@ -43,11 +42,9 @@
         <span class="pager_item prev" v-if="!prevFlag"
           ><nuxt-link
             :to="
-              `/blog${
-                $route.params.categoryId === undefined
-                  ? ''
-                  : `/category/${$route.params.categoryId}`
-              }/page/${isFinite($route.params.p) ? $route.params.p - 1 : ''}`
+              `/blog/search/page/${
+                isFinite($route.params.p) ? $route.params.p - 1 : ''
+              }?q=${$route.query.q}`
             "
             >PREV</nuxt-link
           ></span
@@ -55,11 +52,9 @@
         <span class="pager_item next" v-if="!nextFlag"
           ><nuxt-link
             :to="
-              `/blog${
-                $route.params.categoryId === undefined
-                  ? ''
-                  : `/category/${$route.params.categoryId}`
-              }/page/${isFinite($route.params.p) ? +$route.params.p + 1 : '2'}`
+              `/blog/search/page/${
+                isFinite($route.params.p) ? +$route.params.p + 1 : '2'
+              }?q=${$route.query.q}`
             "
             >NEXT</nuxt-link
           ></span
@@ -67,7 +62,7 @@
       </div>
     </div>
 
-    <sidebar :contents="categories.contents"> </sidebar>
+    <sidebar :contents="categories.contents"></sidebar>
   </div>
 </template>
 
@@ -104,16 +99,13 @@ export default {
     },
     async search() {
       const page = this.$route.params.p || "1";
-      const categoryId = this.$route.params.categoryId;
       const limit = 10;
       if (this.$route.query.q === undefined) return;
       const responseBlog = await axios.get(
         // your-service-id部分は自分のサービスidに置き換えてください
-        `https://homoludens.microcms.io/api/v1/blog?limit=${limit}${
-          categoryId === undefined
-            ? ""
-            : `&filters=category[equals]${categoryId}`
-        }&offset=${(page - 1) * limit}&q=${this.$route.query.q}`,
+        `https://homoludens.microcms.io/api/v1/blog?limit=${limit}&offset=${(page -
+          1) *
+          limit}&q=${this.$route.query.q}`,
         {
           // your-api-key部分は自分のapi-keyに置き換えてください
           headers: { "X-API-KEY": "85b1c5b7-87a5-40c6-b296-a2117a30a78a" }
@@ -139,7 +131,6 @@ export default {
 
       this.blogs = responseBlog.data;
       this.categories = responseCategory.data;
-
     },
     reSearch(e) {
       if (e.target.value === "") return;

@@ -88,6 +88,11 @@ export default {
         name: "page"
       });
       routes.push({
+        path: "/blog/search/page/:p",
+        component: resolve(__dirname, "pages/blog/search.vue"),
+        name: "search"
+      });
+      routes.push({
         path: "/blog/category/:categoryId/page/:p",
         component: resolve(__dirname, "pages/blog/index.vue"),
         name: "category"
