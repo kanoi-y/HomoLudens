@@ -38,28 +38,7 @@
           </nuxt-link>
         </div>
       </div>
-      <div class="pager" :class="{ flex_end: prevFlag }">
-        <span class="pager_item prev" v-if="!prevFlag"
-          ><nuxt-link
-            :to="
-              `/blog/search/page/${
-                isFinite($route.params.p) ? $route.params.p - 1 : ''
-              }?q=${$route.query.q}`
-            "
-            >PREV</nuxt-link
-          ></span
-        >
-        <span class="pager_item next" v-if="!nextFlag"
-          ><nuxt-link
-            :to="
-              `/blog/search/page/${
-                isFinite($route.params.p) ? +$route.params.p + 1 : '2'
-              }?q=${$route.query.q}`
-            "
-            >NEXT</nuxt-link
-          ></span
-        >
-      </div>
+     
     </div>
 
     <sidebar :contents="categories.contents"></sidebar>
@@ -76,8 +55,6 @@ export default {
     return {
       blogs: "",
       categories: "",
-      prevFlag: false,
-      nextFlag: false,
       articleCount: ""
     };
   },
@@ -98,14 +75,10 @@ export default {
       return formalizedTime;
     },
     async search() {
-      const page = this.$route.params.p || "1";
       const limit = 10;
-      if (this.$route.query.q === undefined) return;
       const responseBlog = await axios.get(
         // your-service-id部分は自分のサービスidに置き換えてください
-        `https://homoludens.microcms.io/api/v1/blog?limit=${limit}&offset=${(page -
-          1) *
-          limit}&q=${this.$route.query.q}`,
+        `https://homoludens.microcms.io/api/v1/blog?limit=${limit}&q=${this.$route.query.q}`,
         {
           // your-api-key部分は自分のapi-keyに置き換えてください
           headers: { "X-API-KEY": "85b1c5b7-87a5-40c6-b296-a2117a30a78a" }
@@ -120,15 +93,6 @@ export default {
       );
 
       this.articleCount = responseBlog.data.totalCount;
-      const pagerCount = Math.ceil(this.articleCount / limit);
-
-      if (page === "1") {
-        this.prevFlag = true;
-      }
-      if (+page === pagerCount || pagerCount === 0) {
-        this.nextFlag = true;
-      }
-
       this.blogs = responseBlog.data;
       this.categories = responseCategory.data;
     },
