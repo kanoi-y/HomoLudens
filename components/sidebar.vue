@@ -35,17 +35,17 @@ export default {
   },
   computed: {
     checkRoute() {
-      if(this.$route.path === "/blog/search") {
-        return false
+      if (this.$route.path === "/blog/search") {
+        return false;
       } else {
-        return true
+        return true;
       }
     }
   },
   methods: {
     search(e) {
       if (e.target.value === "") return;
-      this.$router.push(`/blog/search?q=${e.target.value}`);
+      this.$router.push(`/blog/search?q=${encodeURI(e.target.value)} `);
     }
   }
 };

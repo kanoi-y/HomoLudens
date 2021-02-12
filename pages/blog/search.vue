@@ -38,7 +38,6 @@
           </nuxt-link>
         </div>
       </div>
-     
     </div>
 
     <sidebar :contents="categories.contents"></sidebar>
@@ -98,7 +97,7 @@ export default {
     },
     reSearch(e) {
       if (e.target.value === "") return;
-      this.$router.push(`/blog/search?q=${e.target.value}`);
+      this.$router.push(`/blog/search?q=${encodeURI(e.target.value)}`);
     }
   }
 };
