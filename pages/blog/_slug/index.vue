@@ -101,6 +101,7 @@ export default {
     flex: 1;
     margin-right: 5%;
     padding-bottom: 45px;
+    max-width: 70%;
   }
 }
 
